@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'shop';
+
+  list: any = [];
+  @Output() mainListChange: EventEmitter<any> = new EventEmitter();
+
+
+  displayList(list){
+    console.log("Cart"+this.list);
+    this.list = list;
+    this.mainListChange.emit(this.list);
+  }
 }

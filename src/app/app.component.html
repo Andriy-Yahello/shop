@@ -18,4 +18,14 @@
   </li>
 </ul>
 
+<!-- <app-cart *ngFor="let product of list" [product]="product">
+</app-cart> -->
+<app-cart>
+</app-cart>
+<ul >
+    <li *ngFor="let p of list">Name: {{p.name}} Description: {{p.description}} Price: {{p.price}} Category: {{p.category}}</li>
+</ul>
+<!-- <app-product></app-product> -->
+<app-product-list (selectedProductsChange)='displayList($event)'></app-product-list>
+
 <router-outlet></router-outlet>
