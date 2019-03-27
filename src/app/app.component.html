@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<!-- <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
@@ -16,16 +16,18 @@
   <li>
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
-</ul>
+</ul> -->
 
 <!-- <app-cart *ngFor="let product of list" [product]="product">
 </app-cart> -->
-<app-cart>
-</app-cart>
-<ul >
+
+<!-- <ul >
     <li *ngFor="let p of list">Name: {{p.name}} Description: {{p.description}} Price: {{p.price}} Category: {{p.category}}</li>
-</ul>
+</ul> -->
 <!-- <app-product></app-product> -->
 <app-product-list (selectedProductsChange)='displayList($event)'></app-product-list>
+
+<app-cart [appCartList]="list">
+</app-cart>
 
 <router-outlet></router-outlet>

@@ -1,36 +1,49 @@
 import { Component, OnInit, Input, HostBinding } from '@angular/core';
-import { ProductModel } from 'src/app/models/product';
+
+import { Subscription, Subject } from 'rxjs';
 import { CartService } from '../services/cart.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css'],
-  providers: [CartService]
+  styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  list: ProductModel[] = [];
+  @Input() appCartList: any = [];
   @HostBinding('class.is-open')
-  i: ProductModel;
+  i: any;
   subscription: Subscription;
+  refresh: Subject<any> = new Subject();
   
   constructor(private cartService: CartService) { 
-    console.log("j");
-    // this.subscription = cartService.missionAnnounced$.subscribe(
-    //   mission => {
-    //     this.i = (mission);
-    // });
-    console.log(this.i);
+    
   }
 
   ngOnInit() {
     console.log("j");
-    this.cartService.change.subscribe(
-      p => {
-        this.i = p;
-      }
-    );
+    this.subscription = this.cartService.getProduct().subscribe(
+      product => {
+        this.i = product;
+    });
+    console.log("this.i"+this.i);
+    // console.log("j");
+    // this.cartService.change.subscribe(
+    //   p => {
+    //     this.i = p;
+    //     console.log("p "+p);
+    //   }
+    // );
+    // console.log("i "+this.i);
+   // this.refresh.next();
   }
+
+  get GetProduct(){
+    return this.cartService.getProduct();
+  }
+  
+  ngOnDestroy() {
+    // unsubscribe to ensure no memory leaks
+    this.subscription.unsubscribe();
+}
 
 }

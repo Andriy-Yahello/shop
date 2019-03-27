@@ -1,28 +1,45 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import { ProductModel } from 'src/app/models/product';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
+import { ProductModel } from 'src/app/product/models/product';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  @Output() change: EventEmitter<ProductModel> = new EventEmitter();
+  change: EventEmitter<ProductModel>;
   product: ProductModel;
+  private subject = new Subject<any>();
+
   
-  private missionAnnouncedSource    = new Subject<ProductModel>();
+  // private missionAnnouncedSource    = new Subject<ProductModel>();
 
-  missionAnnounced$ = this.missionAnnouncedSource.asObservable();
+  // missionAnnounced$ = this.missionAnnouncedSource.asObservable();
 
-  announceMission(mission: ProductModel) {
-    this.missionAnnouncedSource.next(mission);
-  }
+  // announceMission(mission: ProductModel) {
+  //   this.missionAnnouncedSource.next(mission);
+  // }
 
   // list: ProductModel[] = [];
 
-  constructor() { }
+  constructor() { 
+    this.change = new EventEmitter();
+  }
 
   addProductToCart(product: ProductModel){
-    this.product = product;
-    this.change.emit(product);
+
+    this.subject.next(product);
+    // console.log("Entered CartService")
+     this.product = product;
+    // console.log("Entered CartService"+this.product.name)
+     this.change.emit(product);
+  }
+
+  clearProduct() {
+      this.subject.next();
+  }
+
+  getProduct(): Observable<any> {
+      return this.subject.asObservable();
   }
 }

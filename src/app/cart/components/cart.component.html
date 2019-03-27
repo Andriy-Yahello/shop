@@ -1,6 +1,7 @@
-<p>
-  cart works! {{i}}
+<p *ngIf="appCartList.length > 0; else elseBlock">
+  Your selected products!
 </p>
-<!-- <ul >
-  <li *ngFor="let p of list">Name: {{p.name}} Description: {{p.description}} Price: {{p.price}} Category: {{p.category}}</li>
-</ul> -->
+<ng-template #elseBlock>Cart is Empty. Please, add to cart some products.</ng-template>
+<ul >
+  <li *ngFor="let p of appCartList">Name: {{p.name}} Description: {{p.description}} Price: {{p.price}} Category: {{p.category}}</li>
+</ul>
