@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+to select a product you have to add it to cart
+in the selected list, you can remove this item from the list
+
+to switch between logic go to cart component HTML and comment 
+<div *ngIf="serviceList.length > 0; else elseBlock"> and  
+<li *ngFor="let p of serviceList">Name: {{p.name}} Description: {{p.description}} Price: {{p.price}} Category: {{p.category}}<button (click)="removeFromList(p)">Remove</button></li>
+
+
