@@ -30,7 +30,8 @@ to select a product you have to add it to cart
 in the selected list, you can remove this item from the list
 
 to switch between logic go to cart component HTML and comment 
-<div *ngIf="serviceList.length > 0; else elseBlock"> and  
-<li *ngFor="let p of serviceList">Name: {{p.name}} Description: {{p.description}} Price: {{p.price}} Category: {{p.category}}<button (click)="removeFromList(p)">Remove</button></li>
+line 1 <div *ngIf="serviceList.length > 0; else elseBlock"> and  
+line 6<li *ngFor="let p of serviceList">Name: {{p.name}} Description: {{p.description}} Price: {{p.price}} Category: {{p.category}}<button (click)="removeFromList(p)">Remove</button></li>
+uncomment line 2 and line 7
 
 
