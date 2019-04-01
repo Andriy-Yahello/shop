@@ -8,15 +8,15 @@ interface ProductModelInterface{
 }
 
 export class ProductModel implements ProductModelInterface{
-    name: string;
-    description: string;
-    price: number;
-    category: Category;
-
-    constructor(name:string, description: string , price:number , category:Category){
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.category = category;
+    constructor(
+        public name:string, 
+        public description: string, 
+        public price:number, 
+        public category:Category
+        ) {
+            this.name = name;
+            this.description = description;
+            this.price = price;
+            this.category = category;
     }
 }

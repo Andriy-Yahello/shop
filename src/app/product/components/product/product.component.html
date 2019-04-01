@@ -1,5 +1,7 @@
-<ul >
-  <li *ngFor="let p of products">Name: {{p.name}} Description: {{p.description}} Price: {{p.price}} Category: {{p.category}}<button (click)="addToCart(p)">Add To Cart</button></li>
-</ul>
+<!-- <ul>
+  <li *ngFor="let p of list">Name: {{p.name}} Description: {{p.description}} Price: {{p.price}} Category: {{p.category}}<button (click)="addToCart(p)">Add To Cart</button></li>
+</ul> -->
+
+<app-product-list (selectedProductsChange)='displayList($event)'></app-product-list>
 
 <button (click)="onBuy()">Buy</button>
