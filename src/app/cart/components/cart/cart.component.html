@@ -7,7 +7,7 @@
     <!-- <li *ngFor="let p of appCartList">Name: {{p.name}} Description: {{p.description}} Price: {{p.price}} Category: {{p.category}}</li> -->
   </ul>
   <app-cart-item *ngIf="product !== undefined" [product]="product" (showState)='changeState()'></app-cart-item>
-  <app-update-cart-item *ngIf="product !== undefined" [product]="product" [parentShowState]="parentShowState"></app-update-cart-item>
+  <app-update-cart-item *ngIf="product !== undefined" [product]="product" (showState)='changeState()' [parentShowState]="parentShowState" (updatedProductQuantity)='updateTotalAndSum(product)'></app-update-cart-item>
 </div>
-<div><span>Count: {{serviceList.length}}</span><span> Total: {{sum}}</span></div>
+<div><span>Count: {{count}}</span><span> Total: {{sum}}</span></div>
 <ng-template #elseBlock>Cart is Empty. Please, add to cart some products.</ng-template>

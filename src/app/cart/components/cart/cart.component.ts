@@ -11,9 +11,10 @@ import { ProductModel } from 'src/app/product/models/product';
 export class CartComponent implements OnInit {
   @Input() appCartList: any = [];
   serviceList: ProductModel[] = [];
-  i:any;
+  i:ProductModel;
   product: ProductModel;
   sum: number = 0;
+  count: number = 0;
   subscription: Subscription;
   parentShowState: boolean = false;
   
@@ -25,6 +26,7 @@ export class CartComponent implements OnInit {
         this.i = product;
         this.serviceList.push(product);
         this.sum += product.price;
+        this.count++;
     });
   }
 
@@ -41,16 +43,20 @@ export class CartComponent implements OnInit {
     if (index > -1) {
       this.serviceList.splice(index, 1);
     }
-    this.sum -= product.price;
+    this.sum -= product.price * product.quantity;
+    this.count -= product.quantity;
   }
 
   selectItem(product: ProductModel){
-    console.log("selected: "+product.name);
     this.product = product;
   }
 
   changeState(){
-    this.parentShowState = true;
-    console.log("this.parentShowState "+this.parentShowState)
+    this.parentShowState = !this.parentShowState;
+  }
+
+  updateTotalAndSum(product){
+    this.sum += product.price * (product.quantity - 1);
+    this.count += product.quantity - 1;
   }
 }

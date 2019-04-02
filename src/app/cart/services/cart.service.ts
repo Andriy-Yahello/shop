@@ -7,8 +7,8 @@ import { ProductModel } from 'src/app/product/models/product';
   providedIn: 'root'
 })
 export class CartService {
-  change: EventEmitter<ProductModel>;
-  product: ProductModel;
+  // change: EventEmitter<ProductModel>;
+  // product: ProductModel;
   private subject = new Subject<any>();
 
   
@@ -23,16 +23,15 @@ export class CartService {
   // list: ProductModel[] = [];
 
   constructor() { 
-    this.change = new EventEmitter();
+    // this.change = new EventEmitter();
   }
 
   addProductToCart(product: ProductModel){
-
     this.subject.next(product);
-    // console.log("Entered CartService")
-     this.product = product;
-    // console.log("Entered CartService"+this.product.name)
-     this.change.emit(product);
+
+    // this.product = product;
+
+    // this.change.emit(product);
   }
 
   clearProduct() {

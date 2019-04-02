@@ -10,6 +10,8 @@ export class UpdateCartItemComponent implements OnInit {
   @Input() product: ProductModel;
   @Input() parentShowState: boolean;
   @Output() showState: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() updatedProductQuantity: EventEmitter<ProductModel> = new EventEmitter<ProductModel>();
+  shown: boolean = false;
 
   constructor() { }
 
@@ -21,7 +23,8 @@ export class UpdateCartItemComponent implements OnInit {
     quantity: number;
   }): void {
     this.product.quantity = updatedProduct.quantity;
-    this.parentShowState = false;
-    //this.showState.emit(this.parentShowState);
+    this.shown = false;
+    this.updatedProductQuantity.emit(this.product);
+    this.showState.emit(this.shown);
   }
 }

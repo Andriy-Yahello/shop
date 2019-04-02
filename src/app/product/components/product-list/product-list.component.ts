@@ -27,7 +27,7 @@ export class ProductListComponent implements OnInit {
     this.selectedCartItem.emit(product);
     this.selectedProduct = product;
     this.cartService.addProductToCart(product);
-    //this.cartService.announceMission(product);
+
     this.sum += product.price;
     
     console.log(this.selectedProduct);
