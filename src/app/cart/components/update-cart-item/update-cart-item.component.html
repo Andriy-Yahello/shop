@@ -1,0 +1,24 @@
+<div class="panel panel-default" [ngStyle]="{'visibility':parentShowState ? 'visible' : 'hidden'}">
+  <div class="panel-heading">
+      <h4 class="pannel-title">
+          <span class="glyphicon glyphicon-plus-sign"></span> Edit Product Quantity
+      </h4>
+  </div>
+  <div class="panel-body">
+      <form>
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <input type="number"
+              min="1" max="10"
+              class="form-control" id="quantity"
+              placeholder="Quantity"
+              #quantity>
+        </div>
+        <button type="button"
+                class="btn btn-primary"
+                (click)='updateProduct({
+                  "quantity": quantity.value});
+                  quantity.value="";'>Update</button>
+      </form>
+  </div>
+</div>

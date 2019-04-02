@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductModel } from '../../models/product';
-import { Category } from '../../enums/category';
-import { ProductService } from '../../services/product.service';
-
 
 @Component({
   selector: 'app-product',
@@ -11,6 +8,7 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductComponent implements OnInit {
   list: Array<ProductModel> = [];
+  sum: number = 0;
 
   constructor() { }
 
@@ -22,5 +20,11 @@ export class ProductComponent implements OnInit {
 
   displayList(list){
     this.list = list;
+  }
+
+  getSum(productList: Array<ProductModel>){
+    productList.forEach(element => {
+      this.sum += element.price
+    });
   }
 }

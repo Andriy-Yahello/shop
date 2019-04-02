@@ -12,8 +12,9 @@ export class ProductListComponent implements OnInit {
   products: ProductModel[] = [];
   selectedProduct: ProductModel;
   listChange: ProductModel[] = [];
+  sum: number = 0;
   @Output() selectedProductsChange: EventEmitter<Array<ProductModel>> = new EventEmitter();
-  
+  @Output() selectedCartItem: EventEmitter<ProductModel> = new EventEmitter();
   
   constructor(private productService: ProductService, 
     private cartService: CartService) { }
@@ -23,14 +24,20 @@ export class ProductListComponent implements OnInit {
   }
 
   addToCart(product: ProductModel){
+    this.selectedCartItem.emit(product);
     this.selectedProduct = product;
     this.cartService.addProductToCart(product);
     //this.cartService.announceMission(product);
+    this.sum += product.price;
     
     console.log(this.selectedProduct);
     this.listChange.push(this.selectedProduct);
     this.selectedProductsChange.emit(this.listChange);
     console.log(this.listChange);
+  }
+
+  isInvalid(product: ProductModel) {
+      return !product.available;
   }
 
   removeFromCart(product: ProductModel){

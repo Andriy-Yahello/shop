@@ -1,0 +1,13 @@
+<div *ngIf="serviceList.length > 0; else elseBlock">
+<!-- <p *ngIf="appCartList.length > 0; else elseBlock"> -->
+  Your selected product: {{i.name}}
+  <p>Here is your list!</p>
+  <ul >
+      <li *ngFor="let p of serviceList" (click)="selectItem(p)">Name: {{p.name}} Description: {{p.description}} Price: {{p.price}} Category: {{p.category}} Quantity: {{p.quantity}}<button (click)="removeFromList(p)">Remove</button></li>
+    <!-- <li *ngFor="let p of appCartList">Name: {{p.name}} Description: {{p.description}} Price: {{p.price}} Category: {{p.category}}</li> -->
+  </ul>
+  <app-cart-item *ngIf="product !== undefined" [product]="product" (showState)='changeState()'></app-cart-item>
+  <app-update-cart-item *ngIf="product !== undefined" [product]="product" [parentShowState]="parentShowState"></app-update-cart-item>
+</div>
+<div><span>Count: {{serviceList.length}}</span><span> Total: {{sum}}</span></div>
+<ng-template #elseBlock>Cart is Empty. Please, add to cart some products.</ng-template>
