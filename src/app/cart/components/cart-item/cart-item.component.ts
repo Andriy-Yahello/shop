@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, HostBinding } from '@angular/core';
 import { ProductModel } from 'src/app/product/models/product';
 
 @Component({
@@ -20,4 +20,7 @@ export class CartItemComponent implements OnInit {
     this.shown = true;
     this.showState.emit(this.shown);
   }
+
+  @HostBinding('class')
+  attrClass = 'headingClass';
 }
