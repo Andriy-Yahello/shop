@@ -7,6 +7,7 @@ import { ProductListComponent } from './product/components/product-list/product-
 import { CartComponent } from './cart/components/cart/cart.component';
 import { CartItemComponent } from './cart/components/cart-item/cart-item.component';
 import { UpdateCartItemComponent } from './cart/components/update-cart-item/update-cart-item.component';
+import { CardHoverDirective } from './cart/directives/card-hover.directive';
 
 
 
@@ -17,7 +18,8 @@ import { UpdateCartItemComponent } from './cart/components/update-cart-item/upda
     ProductListComponent,
     CartComponent,
     CartItemComponent,
-    UpdateCartItemComponent
+    UpdateCartItemComponent,
+    CardHoverDirective
   ],
   imports: [
     BrowserModule,

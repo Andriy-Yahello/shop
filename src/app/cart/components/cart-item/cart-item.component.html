@@ -1,6 +1,6 @@
-<div class="panel panel-default">
-  <div class="panel-heading">{{product.name}}</div>
-  <div class="panel-body">
+<div class="panel panel-default card card-block" appCardHover>
+  <div class="panel-heading card-title">{{product.name}}</div>
+  <div class="panel-body card-text" [style.display]="'none'">
       <ul>
           <li>Description: {{product.description}}</li>
           <li>Price: {{product.price}}</li>
