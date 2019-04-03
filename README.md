@@ -1,37 +1,7 @@
-# Shop
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.3.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-to select a product you have to add it to cart
-in the selected list, you can remove this item from the list
-
-to switch between logic go to cart component HTML and comment 
-line 1 <div *ngIf="serviceList.length > 0; else elseBlock"> and  
-line 6<li *ngFor="let p of serviceList">Name: {{p.name}} Description: {{p.description}} Price: {{p.price}} Category: {{p.category}}<button (click)="removeFromList(p)">Remove</button></li>
-uncomment line 2 and line 7
-
-
+add products to cart
+You will see a list above
+you can remove the item
+click on the item of the selected list and you will see item details
+hover over cart item and you will see a block
+click edit quantity and edit product quantity will appear then set new value. 
+click update and you will see the count and Total is updated
