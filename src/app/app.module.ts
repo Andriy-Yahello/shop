@@ -8,8 +8,9 @@ import { CartComponent } from './cart/components/cart/cart.component';
 import { CartItemComponent } from './cart/components/cart-item/cart-item.component';
 import { UpdateCartItemComponent } from './cart/components/update-cart-item/update-cart-item.component';
 import { CardHoverDirective } from './cart/directives/card-hover.directive';
-
-
+import { ContactUsComponent } from './cart/components/contact-us/contact-us.component';
+import { ChangeDirective } from './cart/directives/change.directive';
+import { CoreModule } from './cart/modules/core/core.module';
 
 @NgModule({
   declarations: [
@@ -19,11 +20,14 @@ import { CardHoverDirective } from './cart/directives/card-hover.directive';
     CartComponent,
     CartItemComponent,
     UpdateCartItemComponent,
-    CardHoverDirective
+    CardHoverDirective,
+    ContactUsComponent,
+    ChangeDirective
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

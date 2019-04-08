@@ -3,7 +3,9 @@
   Your selected product: {{i.name}}
   <p>Here is your list!</p>
   <ul >
-      <li *ngFor="let p of serviceList" (click)="selectItem(p)">Name: {{p.name}} Description: {{p.description}} Price: {{p.price}} Category: {{p.category}} Quantity: {{p.quantity}}<button (click)="removeFromList(p)">Remove</button></li>
+      <li *ngFor="let p of serviceList" (click)="selectItem(p)">Name: {{p.name}} Description: {{p.description}} Price: {{p.price}} Category: {{p.category}} Quantity: {{p.quantity}}
+        <button class="btn btn-danger" (click)="removeFromList(p)">Remove</button>
+      </li>
     <!-- <li *ngFor="let p of appCartList">Name: {{p.name}} Description: {{p.description}} Price: {{p.price}} Category: {{p.category}}</li> -->
   </ul>
   <app-cart-item *ngIf="product !== undefined" [product]="product" (showState)='changeState()'></app-cart-item>
