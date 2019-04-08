@@ -9,6 +9,8 @@ import { ProductService } from '../../services/product.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+  sortingName: string;
+  isDesc: boolean;
   products: ProductModel[] = [];
   selectedProduct: ProductModel;
   listChange: ProductModel[] = [];
@@ -47,5 +49,14 @@ export class ProductListComponent implements OnInit {
       this.listChange.splice(index, 1);
     }
     this.selectedProductsChange.emit(this.listChange);
+  }
+  
+  sort(name: string): void {
+    if (name && this.sortingName !== name) {
+      this.isDesc = false;
+    } else {
+      this.isDesc = !this.isDesc;
+    }
+    this.sortingName = name;
   }
 }

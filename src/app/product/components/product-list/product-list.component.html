@@ -1,5 +1,16 @@
-<ul >
-  <li *ngFor="let p of products">Name: {{p.name}} Description: {{p.description}} Price: {{p.price}} Category: {{p.category}}
+<table >
+    <tr>
+        <th (click)="sort('name')">Name</th>
+        <th (click)="sort('description')">Description</th>
+        <th (click)="sort('price')">Price</th>
+        <th (click)="sort('category')">Category</th>
+        <th>Action</th>
+      </tr>
+  <tr *ngFor="let p of products | orderBy:sortingName:isDesc">
+    <td>{{p.name}}</td>
+    <td>{{p.description}}</td>
+    <td>{{p.price | currency}}</td>
+    <td>{{p.category}}</td>
     <button class="btn btn-primary" [disabled]="isInvalid(p)" (click)="addToCart(p)">Add To Cart</button>
-  </li>
-</ul>
+  </tr>
+</table>
