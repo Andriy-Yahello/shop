@@ -1,3 +1,16 @@
+__________________Task4_____________________________
+
+1. click order by drop down to select sorting type
+
+2. click column name to sort items
+
+3. price has currency pipe/ category has uppercase pipe
+
+4. list of pruducts is fetched through promise (async pipe)
+
+5. text-align center
+
+___________________Task3___________________________
 1.add products to cart
 
 2.You will see a list above
