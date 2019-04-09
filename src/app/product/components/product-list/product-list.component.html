@@ -16,7 +16,7 @@
     <td>{{p.name}} </td>
     <td>{{p.description}} </td>
     <td>{{p.price | currency}} </td>
-    <td>{{p.category}} </td>
+    <td>{{p.category | uppercase}} </td>
     <button class="btn btn-primary" [disabled]="isInvalid(p)" (click)="addToCart(p)">Add To Cart</button>
   </tr>
 </table>
