@@ -2,7 +2,7 @@ __________________Task4_____________________________
 
 1. click order by drop down to select sorting type
 
-2. click column name to sort items
+2. click column title to sort items
 
 3. price has currency pipe/ category has uppercase pipe
 
