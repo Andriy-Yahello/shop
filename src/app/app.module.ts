@@ -11,7 +11,7 @@ import { CardHoverDirective } from './cart/directives/card-hover.directive';
 import { ContactUsComponent } from './cart/components/contact-us/contact-us.component';
 import { ChangeDirective } from './cart/directives/change.directive';
 import { CoreModule } from './cart/modules/core/core.module';
-import { OrderByPipe } from './pipes/order-by.pipe';
+import { SharedModule } from './cart/modules/shared/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -23,13 +23,13 @@ import { OrderByPipe } from './pipes/order-by.pipe';
     UpdateCartItemComponent,
     CardHoverDirective,
     ContactUsComponent,
-    ChangeDirective,
-    OrderByPipe
+    ChangeDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

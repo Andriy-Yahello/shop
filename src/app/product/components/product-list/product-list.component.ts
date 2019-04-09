@@ -11,18 +11,21 @@ import { ProductService } from '../../services/product.service';
 export class ProductListComponent implements OnInit {
   sortingName: string;
   isDesc: boolean;
-  products: ProductModel[] = [];
   selectedProduct: ProductModel;
   listChange: ProductModel[] = [];
   sum: number = 0;
   @Output() selectedProductsChange: EventEmitter<Array<ProductModel>> = new EventEmitter();
   @Output() selectedCartItem: EventEmitter<ProductModel> = new EventEmitter();
   
+  data: Promise<ProductModel[]> = <Promise<ProductModel[]>>new Promise((resolve) => {
+      resolve(this.productService.getProducts());
+  }).catch(error => error);
+  
   constructor(private productService: ProductService, 
     private cartService: CartService) { }
 
   ngOnInit() {
-    this.products = this.productService.getProducts();
+    this.getKeys();
   }
 
   addToCart(product: ProductModel){
@@ -49,6 +52,23 @@ export class ProductListComponent implements OnInit {
       this.listChange.splice(index, 1);
     }
     this.selectedProductsChange.emit(this.listChange);
+  }
+
+  keys: string[];
+  sortMap: any = {
+      'name': 'name',
+      'description': 'description',
+      'price': 'price',
+      'category': 'category'
+  };
+
+  getKeys() {
+    this.keys = Object.keys(this.sortMap);
+  }
+
+  setSorting(event): void {
+    console.log(event);
+    this.sort(event.target.value);
   }
   
   sort(name: string): void {
