@@ -5,6 +5,7 @@ import {
   Output, 
   EventEmitter } from '@angular/core';
 import { ProductModel } from '../../models/product.model';
+import { FeedBackModel } from '../../models/feedback.model';
 
 @Component({
   selector: 'app-product',
@@ -17,6 +18,7 @@ export class ProductComponent{
 
   @Output() changeProductAvailability = new EventEmitter<ProductModel>();
   @Output() editProduct = new EventEmitter<ProductModel>();
+  @Output() productFeedbackList = new EventEmitter<Array<FeedBackModel>>();
 
   switchAvailability(){
     this.changeProductAvailability.emit(this.product);
@@ -24,5 +26,9 @@ export class ProductComponent{
 
   onEditProduct() {
     this.editProduct.emit(this.product);
+  }
+
+  showProductFeedback(){
+    this.productFeedbackList.emit(this.product.feedbackList);
   }
 }

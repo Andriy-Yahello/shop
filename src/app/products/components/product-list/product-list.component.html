@@ -2,6 +2,7 @@
   *ngFor="let product of products | async" 
   [product]="product"
   (changeProductAvailability)="onChangeProductStatus($event)"
-  (editProduct)="onEditProduct($event)">
+  (editProduct)="onEditProduct($event)"
+  (productFeedbackList)="showProductFeedback($event)">
 </app-product>
 
