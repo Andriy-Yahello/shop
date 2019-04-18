@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { ProductsModule } from './products/products.module';
 import { FormsModule } from '@angular/forms';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     FormsModule,
     LayoutModule,
+    CoreModule,
     ProductsModule,
     AppRoutingModule
   ],

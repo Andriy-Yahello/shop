@@ -28,13 +28,13 @@
                     <a routerLink="/login">Login</a> 
                   </li> 
                   <li routerLinkActive="active">
-                    <a routerLink="/cast">Cart</a>
+                    <a routerLink="/cart">Cart</a>
                   </li>
                   <li routerLinkActive="active">
-                      <a routerLink="/products">Products</a>
+                      <a routerLink="/home">Products</a>
                   </li>
                   <li routerLinkActive="active">
-                      <a routerLink="/orders">Orders</a>
+                      <a routerLink="/order">Order</a>
                   </li>
               </ul>
             </div>
@@ -42,8 +42,16 @@
         </nav>
 
       <div class="container">
-        <router-outlet>
-        </router-outlet>
+        <div class="col-md-10">
+            <router-outlet>
+            </router-outlet>
+        </div>
+        <div class="col-md-2"> 
+            <button class="btn btn-success"
+            *ngIf="!feedbackListService.isDisplayed"
+            (click)="onDisplayFeeds()">Show Feeds</button>
+            <router-outlet name="feeds"></router-outlet> 
+        </div>
       </div>
   </div> 
 </div>

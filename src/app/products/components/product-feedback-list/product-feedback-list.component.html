@@ -1,3 +1,8 @@
-<p>
-  product-feedback-list works!
-</p>
+<ul>
+  <li *ngFor="let feed of feedbackList" >{{feed.description}}</li>
+</ul>
+<button               
+  type="button"                  
+  class="btn btn-primary"               
+  (click)="onGoBack()">Back           
+</button>     

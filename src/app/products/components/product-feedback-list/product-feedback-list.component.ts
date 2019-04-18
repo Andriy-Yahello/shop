@@ -5,12 +5,11 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 
 @Component({
-  //selector: 'app-product-feedback-list',
   templateUrl: './product-feedback-list.component.html',
   styleUrls: ['./product-feedback-list.component.css']
 })
 export class ProductFeedbackListComponent implements OnInit {
-  feedbacList: Array<FeedBackModel>;
+  feedbackList: Array<FeedBackModel>;
 
   constructor(
     private productArrayService: ProductArrayService,
@@ -19,18 +18,18 @@ export class ProductFeedbackListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.feedbacList = [];
+    this.feedbackList = [];
 
     this.route.paramMap
       .pipe(
         switchMap((params: Params) => this.productArrayService.getProduct(+params.get('productId'))))
       .subscribe(
         product => 
-          this.feedbacList = {...product}.feedbackList,
+          this.feedbackList = {...product}.feedbackList,
         err => console.log(err)
     );
 
-    this.onGoBack();
+    //this.onGoBack();
   }
 
   onGoBack(): void {

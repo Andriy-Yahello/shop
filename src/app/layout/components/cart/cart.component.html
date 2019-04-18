@@ -1,0 +1,18 @@
+<p>
+  cart works!
+</p>
+
+<ul>
+  <li *ngFor="let product of cartList">
+    {{product.name}}
+    <button class="btn btn-danger btn-sm"
+				(click)="removeItem(product)">
+				Remove from Cart
+		</button>
+  </li>
+</ul>
+
+<button class="btn btn-danger btn-sm"
+				(click)="completePurchase()">
+				Purchase
+</button>
