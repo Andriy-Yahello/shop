@@ -6,9 +6,10 @@ import {
   ProductListComponent, 
   ProductComponent, 
   ProductFormComponent, 
-  ProductFeedbackListComponent,
-  ProductDetailComponent,
-  ProductInfoComponent} from './components';
+  // ProductFeedbackListComponent,
+  // ProductDetailComponent,
+  // ProductInfoComponent
+} from './components';
 import { ProductsRoutingModule } from './products-routing.module';
 
 @NgModule({
@@ -16,9 +17,10 @@ import { ProductsRoutingModule } from './products-routing.module';
     ProductFormComponent, 
     ProductListComponent, 
     ProductComponent, 
-    ProductDetailComponent,
-    ProductInfoComponent,
-    ProductFeedbackListComponent],
+    // ProductDetailComponent,
+    // //ProductInfoComponent,
+    // ProductFeedbackListComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,

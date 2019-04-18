@@ -7,6 +7,7 @@ import { LayoutModule } from './layout/layout.module';
 import { ProductsModule } from './products/products.module';
 import { FormsModule } from '@angular/forms';
 import { CoreModule } from './core/core.module';
+import { ProductInfoModule } from './products/components/product-info/product-info.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CoreModule } from './core/core.module';
     FormsModule,
     LayoutModule,
     CoreModule,
+    ProductInfoModule,
     ProductsModule,
     AppRoutingModule
   ],
