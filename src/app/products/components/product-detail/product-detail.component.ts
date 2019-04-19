@@ -27,12 +27,9 @@ export class ProductDetailComponent implements OnInit {
           this.product = {...product},
         err => console.log(err)
     );
-
-    //this.onGoBack();
   }
 
   onGoBack(): void {
     this.router.navigate(['/home']);
   }
-
 }
