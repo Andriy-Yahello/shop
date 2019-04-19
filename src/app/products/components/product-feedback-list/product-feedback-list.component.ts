@@ -18,9 +18,10 @@ export class ProductFeedbackListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('ProductFeedbackListComponent')
     this.feedbackList = [];
 
-    this.route.paramMap
+    this.route.parent.paramMap
       .pipe(
         switchMap((params: Params) => this.productArrayService.getProduct(+params.get('productId'))))
       .subscribe(
@@ -28,11 +29,9 @@ export class ProductFeedbackListComponent implements OnInit {
           this.feedbackList = {...product}.feedbackList,
         err => console.log(err)
     );
-
-    //this.onGoBack();
   }
 
   onGoBack(): void {
-    this.router.navigate(['/home']);
+    this.router.navigate(['']);
   }
 }

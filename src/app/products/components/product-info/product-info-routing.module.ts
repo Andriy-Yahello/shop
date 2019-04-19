@@ -6,7 +6,7 @@ import { ProductFeedbackListComponent } from ".";
 
 
 const routes: Routes = [
-    {path:'', redirectTo: '/(details:details//feeds:feeds)', pathMatch: 'full'},
+    {path:'home', redirectTo: 'product/:productId/(details:details//feeds:feeds)', pathMatch: 'full'},
     {path:'product/:productId', component: ProductInfoComponent, children: 
     [
         {path: 'details', component: ProductDetailComponent, outlet: 'details'},
