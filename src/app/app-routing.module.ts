@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { 
   PathNotFoundComponent, 
-  FeedsComponent, 
   CartComponent, 
   OrderComponent, 
   LoginComponent} from './layout';
@@ -14,11 +13,6 @@ const routes: Routes = [
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
-  },
-  {
-    path: 'feeds',
-    component: FeedsComponent,
-    outlet: 'feeds'
   },
   { 
     path: 'login', 

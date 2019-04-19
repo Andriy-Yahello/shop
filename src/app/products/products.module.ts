@@ -5,10 +5,7 @@ import { ProductsServicesModule } from './products-services.module';
 import { 
   ProductListComponent, 
   ProductComponent, 
-  ProductFormComponent, 
-  // ProductFeedbackListComponent,
-  // ProductDetailComponent,
-  // ProductInfoComponent
+  ProductFormComponent,
 } from './components';
 import { ProductsRoutingModule } from './products-routing.module';
 
@@ -16,10 +13,7 @@ import { ProductsRoutingModule } from './products-routing.module';
   declarations: [
     ProductFormComponent, 
     ProductListComponent, 
-    ProductComponent, 
-    // ProductDetailComponent,
-    // //ProductInfoComponent,
-    // ProductFeedbackListComponent
+    ProductComponent,
   ],
   imports: [
     CommonModule,

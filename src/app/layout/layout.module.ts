@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { 
   PathNotFoundComponent, 
-  FeedsComponent, 
   CartComponent, 
   LoginComponent,
   OrderComponent } from './components';
@@ -13,7 +12,6 @@ import { FormsModule } from '@angular/forms';
     PathNotFoundComponent,  
     CartComponent,
     OrderComponent,
-    FeedsComponent,
     LoginComponent
   ],
   imports: [
