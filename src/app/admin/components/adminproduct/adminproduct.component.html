@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Product</div>
+    <div class="panel-body">
+      <ul>
+        <li>Id: {{product.id}}</li>
+        <li>Name: {{product.name}}</li>
+        <li>Description: {{product.description}}</li>
+        <li>Price: {{product.price}}</li>
+        <li>Category: {{product.category}}</li>
+        <li>Available: {{product.available}}</li>
+        <li>Quantity: {{product.quantity}}</li>
+        <li>Updated: {{product.updated}}</li>
+      </ul>
+      <button class="btn btn-primary btn-sm" 
+          (click)="switchAvailability()"
+          [disabled]="!product.available">
+          Change
+      </button>
+      <button class="btn btn-warning btn-sm"
+          (click)="onEditProduct()">
+          Edit
+      </button>
+    </div>
+  </div>

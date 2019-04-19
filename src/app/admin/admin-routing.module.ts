@@ -7,7 +7,10 @@ import {
   AdminDashboardComponent,
   OrdersComponent
  } from '.';
-import { AuthGuard } from '../core';
+import { AuthGuard, CanDeactivateGuard } from '../core';
+import { AdminProductFormComponent } from './components';
+import { ProductResolveGuard } from '../products/guards';
+
 
 const routes: Routes = [
   {
@@ -20,7 +23,17 @@ const routes: Routes = [
         canActivateChild: [AuthGuard],
         children: [
           { path: 'users', component: ManageUsersComponent },
-          { path: 'products', component: ProductsComponent },
+          { path: 'products', component: ProductsComponent, children: [
+            {path: '', component: ProductsComponent},
+            {
+              path: 'edit/:productId',
+              component: AdminProductFormComponent,
+              canDeactivate: [CanDeactivateGuard],
+                resolve: {
+                  product: ProductResolveGuard
+                }
+            }
+          ] },
           { path: 'orders', component: OrdersComponent },
           { path: '', component: AdminDashboardComponent }
         ]
@@ -37,6 +50,8 @@ export class AdminRoutingModule { }
 
 export const adminRouterComponents = [
   AdminComponent, 
+  ProductsComponent,
+  AdminProductFormComponent,
   AdminDashboardComponent, 
   ProductsComponent, 
   ManageUsersComponent,
