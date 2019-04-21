@@ -3,8 +3,8 @@ import { ProductModel } from '../../models/product.model';
 import { ProductArrayService } from '../../services/product-array.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { pluck } from 'rxjs/operators';
-import { FeedbackListService, DialogService } from 'src/app/core';
 import { Observable } from 'rxjs/internal/Observable';
+import { FeedbackListService, DialogService } from '../../../core';
 
 @Component({
   templateUrl: './product-form.component.html',
@@ -32,7 +32,6 @@ export class ProductFormComponent implements OnInit {
 
   onSaveProduct() {
     const product = { ...this.product };
-    console.log('onSaveProduct');
 
     if (product.id) {
       this.productArrayService.updateProduct(product);

@@ -24,8 +24,7 @@ export class ProductComponent{
 
   @Output() changeProductAvailability = new EventEmitter<ProductModel>();
   @Output() editProduct = new EventEmitter<ProductModel>();
-  @Output() productFeed = new EventEmitter<ProductModel>();
-  @Output() productFeedbackList = new EventEmitter<Array<FeedBackModel>>();
+  @Output() productDetails = new EventEmitter<ProductModel>();
 
   switchAvailability(){
     this.changeProductAvailability.emit(this.product);
@@ -35,13 +34,9 @@ export class ProductComponent{
     this.editProduct.emit(this.product);
   }
 
-  showProductFeed()
+  showProductDetails()
   {
-    this.productFeed.emit(this.product);
-  }
-
-  showProductFeedback(){
-    this.productFeedbackList.emit(this.product.feedbackList);
+    this.productDetails.emit(this.product);
   }
 
   addToCart(product: ProductModel){

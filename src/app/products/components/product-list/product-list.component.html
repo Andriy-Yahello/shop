@@ -1,17 +1,12 @@
 <div class="container">
-    <div class="col-md-6">
+    <div class="col-md-12">
       <app-product 
       *ngFor="let product of products | async" 
       [product]="product"
       (changeProductAvailability)="onChangeProductStatus($event)"
       (editProduct)="onEditProduct($event)"
-      (productFeed)="showFeed($event)"
+      (productDetails)="showFeed($event)"
       >
     </app-product>
   </div>
-  <div class="col-md-6">
-      <router-outlet name="feeds2"></router-outlet> 
-  </div>
 </div>
-
-<!--   (productFeedbackList)="showProductFeedback($event)" -->
