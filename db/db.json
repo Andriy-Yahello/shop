@@ -1,0 +1,77 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Ball",
+      "description": "Official NBA Street Basketball, Size 6 (28.5\")",
+      "price": 10,
+      "category": "best seller",
+      "available": true,
+      "quantity": 56,
+      "updated": "2019-02-28T08:00:00.000Z",
+      "feedbackList": [
+        {
+          "id": 1,
+          "productId": 1,
+          "description": "good"
+        },
+        {
+          "id": 2,
+          "productId": 1,
+          "description": "I like it"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "pen",
+      "description": "Genuine Cross brand pens",
+      "price": 2,
+      "category": 2,
+      "available": true,
+      "quantity": 15,
+      "updated": "2019-02-22",
+      "feedback": [
+        {
+          "id": 3,
+          "producrtId": 2,
+          "description": "nice"
+        },
+        {
+          "id": 4,
+          "producrtId": 2,
+          "description": "I love it"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "sneakers",
+      "description": "The super-comfortable Energy Afterburn Sneaker",
+      "price": 6,
+      "category": 3,
+      "available": true,
+      "quantity": 20,
+      "updated": "2019-03-05",
+      "feedback": [
+        {
+          "id": 5,
+          "producrtId": 3,
+          "description": "soft"
+        },
+        {
+          "id": 6,
+          "producrtId": 3,
+          "description": "I will buy it next time"
+        }
+      ]
+    },
+    {
+      "name": "Overlook Hotel",
+      "description": "Official NBA Street Basketball, Size 6 (28.5\")",
+      "price": 6,
+      "quantity": 23,
+      "id": 4
+    }
+  ]
+}

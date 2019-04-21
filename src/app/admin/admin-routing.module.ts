@@ -24,21 +24,29 @@ const routes: Routes = [
         children: [
           { path: 'users', component: ManageUsersComponent },
           { path: 'products', component: ProductsComponent, children: [
-            {path: '', component: ProductsComponent},
-            {
-              path: 'edit/:productId',
-              component: AdminProductFormComponent,
-              canDeactivate: [CanDeactivateGuard],
-                resolve: {
-                  product: ProductResolveGuard
-                }
-            }
-          ] },
+            {path: '', component: ProductsComponent}]
+          },
           { path: 'orders', component: OrdersComponent },
           { path: '', component: AdminDashboardComponent }
         ]
       }
     ]
+  },
+  {
+    path: 'product/edit/:productId',
+    component: AdminProductFormComponent,
+    canDeactivate: [CanDeactivateGuard],
+      resolve: {
+        product: ProductResolveGuard
+      }
+  },
+  {
+    path: 'product/add',
+    component: AdminProductFormComponent,
+    canDeactivate: [CanDeactivateGuard],
+      resolve: {
+        product: ProductResolveGuard
+      }
   }
 ];
 

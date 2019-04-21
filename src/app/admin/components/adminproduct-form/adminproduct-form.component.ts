@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductModel } from 'src/app/products/models/product.model';
-import { DialogService } from 'src/app/core';
-import { ProductArrayService } from 'src/app/products';
-import { Router, ActivatedRoute } from '@angular/router';
-import { pluck } from 'rxjs/operators';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { ProductPromiseService } from '../../../products';
+import { ProductModel } from '../../../products/models/product.model';
+import { DialogService } from '../../../core';
 
 @Component({
   selector: 'app-adminproduct-form',
@@ -16,37 +16,42 @@ export class AdminProductFormComponent implements OnInit {
   originalProduct: ProductModel;
 
   constructor(
-    private productArrayService: ProductArrayService,
+    private productPromiseService: ProductPromiseService,
     private router: Router,
     private route: ActivatedRoute,
     private dialogService: DialogService
   ) { }
-
+  
   ngOnInit() {
-    this.product = { ...this.product };
-      this.route.parent.data.pipe(pluck('product'))
-        .subscribe((product: ProductModel) => {
-          this.product = { ...product };
-          this.originalProduct = { ...product };
-    });
+    this.product = new ProductModel;
+
+    this.route.parent.paramMap
+      .pipe(
+        switchMap((params: Params) => {
+          return params.get('productId')
+            ? this.productPromiseService.getProduct(+params.get('productId'))
+            : Promise.resolve(null);
+        })
+      )
+      .subscribe(
+        product => (this.product = { ...product }),
+        err => console.log(err)
+      );
   }
 
   onSaveProduct() {
     const product = { ...this.product };
 
-    if (product.id) {
-      this.productArrayService.updateProduct(product);
-      this.router.navigate(['', { editedProductId: product.id }]);
-    } else {
-      this.productArrayService.createProduct(product);
-      this.onGoBack();
-    }
+    const method = product.id ? 'updateProduct' : 'createProduct';
+    this.productPromiseService[method](product)
+      .then(() => this.onGoBack())
+      .catch(err => console.log(err));
 
     this.originalProduct = { ...this.product };
   }
 
   onGoBack(): void {
-    this.router.navigate(['']);
+    this.router.navigate(['admin/products']);
   }
 
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {

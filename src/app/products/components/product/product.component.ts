@@ -6,7 +6,8 @@ import {
   EventEmitter } from '@angular/core';
 import { ProductModel } from '../../models/product.model';
 import { FeedBackModel } from '../../models/feedback.model';
-import { CartProductListService } from 'src/app/core';
+import { CartProductListService } from '../../../core';
+
 
 @Component({
   selector: 'app-product',

@@ -11,14 +11,17 @@
         <li>Quantity: {{product.quantity}}</li>
         <li>Updated: {{product.updated}}</li>
       </ul>
-      <button class="btn btn-primary btn-sm" 
-          (click)="switchAvailability()"
-          [disabled]="!product.available">
-          Change
+      <button 
+        class="btn btn-primary btn-sm" 
+        (click)="switchAvailability()">Change
       </button>
-      <button class="btn btn-warning btn-sm"
-          (click)="onEditProduct()">
-          Edit
+      <button 
+        class="btn btn-warning btn-sm"
+        (click)="onEditProduct()">Edit
+      </button>
+      <button
+        class="btn btn-danger btn-sm"
+        (click)="RemoveProduct()">Remove
       </button>
     </div>
   </div>

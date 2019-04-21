@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { CartProductListService } from 'src/app/core';
-import { ProductModel } from 'src/app/products/models/product.model';
-import { FeedBackModel } from 'src/app/products/models/feedback.model';
+import { CartProductListService } from '../../../core';
+import { ProductModel } from '../../../products/models/product.model';
+import { FeedBackModel } from '../../../products/models/feedback.model';
+
 
 @Component({
   selector: 'app-adminproduct',
@@ -18,5 +19,18 @@ export class AdminproductComponent {
   @Output() changeProductAvailability = new EventEmitter<ProductModel>();
   @Output() editProduct = new EventEmitter<ProductModel>();
   @Output() productFeed = new EventEmitter<ProductModel>();
+  @Output() removeProduct = new EventEmitter<ProductModel>();
   @Output() productFeedbackList = new EventEmitter<Array<FeedBackModel>>();
+
+  switchAvailability(){
+    this.changeProductAvailability.emit(this.product);
+  }
+
+  onEditProduct() {
+    this.editProduct.emit(this.product);
+  }
+
+  RemoveProduct(){
+    this.removeProduct.emit(this.product);
+  }
 }

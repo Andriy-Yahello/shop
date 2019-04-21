@@ -7,7 +7,10 @@ import { FormsModule } from '@angular/forms';
 import { AdminProductFormComponent, AdminproductComponent } from './components';
 
 @NgModule({
-  declarations: [adminRouterComponents, AdminproductComponent, AdminProductFormComponent],
+  declarations: [
+    adminRouterComponents, 
+    AdminproductComponent, 
+    AdminProductFormComponent],
   imports: [
     CommonModule,
     FormsModule,

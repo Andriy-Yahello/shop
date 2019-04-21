@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core';
 import { CoreModule } from '../core.module';
-import { ProductModel } from 'src/app/products/models/product.model';
+import { ProductModel } from '../../products/models/product.model';
+import { OrderModel } from '../models/order.model';
+
 
 @Injectable({
   providedIn: CoreModule
 })
 export class CartProductListService {
   private productList: ProductModel[] = [];
+  private currentOrder: ProductModel[] = [];
   private orderStatus: boolean = false;
+  private ordersList: Array<OrderModel> = [];
+  private count: number = 0;
 
   addProduct(product: ProductModel): void {
     this.productList.unshift(product);
@@ -29,13 +34,20 @@ export class CartProductListService {
   }
 
   buyProducts(){
+    this.count++;
     this.Status = true;
-    // this.clearCart();
+    this.ordersList.push(new OrderModel(this.count, this.productList));
+    this.currentOrder = this.productList;
+    this.productList = [];
   }
 
     getOrder(): Array<ProductModel> {
-        if (this.Status) 
-            return this.getProductList();
+      if (this.Status) 
+          return this.currentOrder;
+    }
+
+    getOrders(): Array<OrderModel> {
+        return this.ordersList;
     }
 
     public get Status():boolean {

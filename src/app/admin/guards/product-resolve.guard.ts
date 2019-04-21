@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { ProductModel } from '../models/product.model';
+
 import { map, take, catchError } from 'rxjs/operators';
-import { ProductArrayService } from '../services/product-array.service';
-import { ProductsServicesModule } from '../products-services.module';
-import { Category } from '../enums/categoty.enum';
+import { ProductsServicesModule } from '../../products/products-services.module';
+import { ProductModel } from '../../products/models/product.model';
+import { ProductArrayService } from '../../products';
+import { Category } from '../../products/enums/categoty.enum';
+
 
 @Injectable({
   providedIn: ProductsServicesModule
@@ -24,19 +26,20 @@ export class ProductResolveGuard implements Resolve<ProductModel> {
     }
 
     const id = +route.paramMap.get('productId');
+    console.log('ProductResolveGuard'+id)
 
     return this.productArrayService.getProduct(id).pipe(
       map((product: ProductModel) => {
         if (product) {
           return product;
         } else {
-          this.router.navigate(['/home']);
+          this.router.navigate(['']);
           return null;
         }
       }),
       take(1),
       catchError(() => {
-        this.router.navigate(['/home']);
+        this.router.navigate(['']);
         return of(null);
       })
     );

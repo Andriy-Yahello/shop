@@ -32,10 +32,11 @@ export class ProductFormComponent implements OnInit {
 
   onSaveProduct() {
     const product = { ...this.product };
+    console.log('onSaveProduct');
 
     if (product.id) {
       this.productArrayService.updateProduct(product);
-      this.router.navigate(['/home', { editedProductId: product.id }]);
+      this.router.navigate(['']);
     } else {
       this.productArrayService.createProduct(product);
       this.onGoBack();
@@ -45,7 +46,7 @@ export class ProductFormComponent implements OnInit {
   }
 
   onGoBack(): void {
-    this.router.navigate(['/home']);
+    this.router.navigate(['']);
   }
 
   onShowFeedBack(): void {

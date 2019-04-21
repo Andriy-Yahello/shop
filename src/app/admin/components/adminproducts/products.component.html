@@ -1,4 +1,12 @@
-<app-adminproduct 
-      *ngFor="let product of products | async" 
-      [product]="product">
-</app-adminproduct>
+<div>
+      <button class="btn btn-primary"
+            (click)="onCreateProduct()">New Product</button>
+      <br><br>
+      <app-adminproduct 
+            *ngFor="let product of products | async" 
+            [product]="product"
+            (changeProductAvailability)="onChangeProductStatus($event)"
+            (editProduct)="onEditProduct($event)"
+            (removeProduct)="RemoveProductItem($event)">
+      </app-adminproduct>
+</div>
