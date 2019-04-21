@@ -13,6 +13,7 @@
 </ul>
 
 <button class="btn btn-danger btn-sm"
-				(click)="completePurchase()">
+        (click)="completePurchase()"
+        [disabled]="cartList.length === 0">
 				Purchase
 </button>
