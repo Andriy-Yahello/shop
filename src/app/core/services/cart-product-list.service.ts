@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CoreModule } from '../core.module';
 import { ProductModel } from '../../products/models/product.model';
 import { OrderModel } from '../models/order.model';
-
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: CoreModule
@@ -13,6 +13,8 @@ export class CartProductListService {
   private orderStatus: boolean = false;
   private ordersList: Array<OrderModel> = [];
   private count: number = 0;
+
+  constructor(private localStorageService: LocalStorageService) { }
 
   addProduct(product: ProductModel): void {
     this.productList.unshift(product);
@@ -36,7 +38,16 @@ export class CartProductListService {
   buyProducts(){
     this.count++;
     this.Status = true;
-    this.ordersList.push(new OrderModel(this.count, this.productList));
+    var order = new OrderModel(this.count, this.productList);
+    this.ordersList.push(order);
+
+    console.log('buyProducts');
+
+    if (this.localStorageService.getFromLocalStorage('orders'))
+      this.localStorageService.addToLocalStorage('orders', order); 
+    else
+      this.localStorageService.saveToLocalStorage('orders', this.ordersList);
+      
     this.currentOrder = this.productList;
     this.productList = [];
   }
