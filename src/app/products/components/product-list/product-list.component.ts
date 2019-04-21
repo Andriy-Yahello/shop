@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductModel } from '../../models/product.model';
-import { ProductArrayService } from '../../services/product-array.service';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
+import { ProductPromiseService } from '../../services';
 
 @Component({
   selector: 'app-product-list',
@@ -14,20 +14,10 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private productArrayService: ProductArrayService) { }
+    private productPromiseService: ProductPromiseService) { }
 
   ngOnInit() {
-    this.products = this.productArrayService.getProducts();
-  }
-
-  onChangeProductStatus(product: ProductModel): void {
-    const updatedProduct = { ...product, available: false };
-    this.productArrayService.updateProduct(updatedProduct);
-  }
-
-  onEditProduct(product: ProductModel): void {
-    const link = ['/edit', product.id];
-    this.router.navigate(link);
+    this.products = from(this.productPromiseService.getProducts());
   }
 
   showFeed(product: ProductModel): void {

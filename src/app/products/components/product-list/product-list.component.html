@@ -3,8 +3,6 @@
       <app-product 
       *ngFor="let product of products | async" 
       [product]="product"
-      (changeProductAvailability)="onChangeProductStatus($event)"
-      (editProduct)="onEditProduct($event)"
       (productDetails)="showFeed($event)"
       >
     </app-product>

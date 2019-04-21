@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-
 import { Router } from '@angular/router';
 import { ProductModel } from '../../../products/models/product.model';
-import { ProductArrayService, ProductPromiseService } from '../../../products';
-
+import { ProductPromiseService } from '../../../products';
 
 @Component({
   selector: 'app-products',
@@ -16,18 +13,14 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private productPromiseService: ProductPromiseService,
-    private productArrayService: ProductArrayService
+    private productPromiseService: ProductPromiseService
   ) { }
 
   ngOnInit() {
     this.products = this.productPromiseService.getProducts();
-    // this.products = this.productArrayService.getProducts();
   }
 
   onChangeProductStatus(product: ProductModel): void {
-    // const updatedProduct = { ...product, available: false };
-    // this.productArrayService.updateProduct(updatedProduct);
     this.updateProduct(product).catch(err => console.log(err));
   }
 
