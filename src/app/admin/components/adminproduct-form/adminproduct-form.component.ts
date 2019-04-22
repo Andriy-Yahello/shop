@@ -25,7 +25,7 @@ export class AdminProductFormComponent implements OnInit {
   ngOnInit() {
     this.product = new ProductModel;
 
-    this.route.parent.paramMap
+    this.route.paramMap
       .pipe(
         switchMap((params: Params) => {
           return params.get('productId')
@@ -34,7 +34,9 @@ export class AdminProductFormComponent implements OnInit {
         })
       )
       .subscribe(
-        product => (this.product = { ...product }),
+        product => (
+          this.product = { ...product },
+          this.originalProduct = { ...product }),
         err => console.log(err)
       );
   }
