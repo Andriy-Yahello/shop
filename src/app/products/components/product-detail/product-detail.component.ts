@@ -10,7 +10,7 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  product: ProductModel = new ProductModel;
+  product: ProductModel = new ProductModel();
 
   constructor(
     private productArrayService: ProductArrayService,
@@ -23,7 +23,7 @@ export class ProductDetailComponent implements OnInit {
       .pipe(
         switchMap((params: Params) => this.productArrayService.getProduct(+params.get('productId'))))
       .subscribe(
-        product => 
+        product =>
           this.product = {...product},
         err => console.log(err)
     );

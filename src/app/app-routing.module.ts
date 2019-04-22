@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { 
-  PathNotFoundComponent, 
-  CartComponent, 
-  OrderComponent, 
+import {
+  PathNotFoundComponent,
+  CartComponent,
+  OrderComponent,
   LoginComponent} from './layout';
 import { AuthGuard } from './core';
 
@@ -14,10 +14,10 @@ const routes: Routes = [
     redirectTo: '/home',
     pathMatch: 'full'
   },
-  { 
-    path: 'login', 
+  {
+    path: 'login',
     component: LoginComponent,
-    data: { title: 'Login' } 
+    data: { title: 'Login' }
   },
   {
     path: 'admin',
@@ -54,4 +54,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

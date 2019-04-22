@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
-
-// rxjs
 import { Observable, of, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-
 import { UserModel } from './../models/user.model';
 import { UsersServicesModule } from '../users-services.module';
 

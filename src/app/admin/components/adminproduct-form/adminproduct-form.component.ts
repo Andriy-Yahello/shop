@@ -21,10 +21,10 @@ export class AdminProductFormComponent implements OnInit {
     private route: ActivatedRoute,
     private dialogService: DialogService
   ) { }
-  
+
   ngOnInit() {
-    this.product = new ProductModel;
-    this.originalProduct = new ProductModel;
+    this.product = new ProductModel();
+    this.originalProduct = new ProductModel();
 
     this.route.paramMap
       .pipe(
@@ -67,7 +67,7 @@ export class AdminProductFormComponent implements OnInit {
     if (flags.every(el => el)) {
       return true;
     }
-    
+
     return this.dialogService.confirm('Discard changes?');
   }
 }

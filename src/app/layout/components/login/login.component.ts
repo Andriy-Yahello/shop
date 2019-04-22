@@ -10,20 +10,19 @@ import { AuthService } from './../../../core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  ngOnInit(): void {
-    this.setMessage();
-  }
   message: string;
   private unsubscribe: Subject<void> = new Subject();
 
+  ngOnInit(): void {
+    this.setMessage();
+  }
 
-  constructor(
-    public authService: AuthService, 
+  constructor (
+    public authService: AuthService,
     private router: Router
   ) { }
 
   ngOnDestroy() {
-    console.log('[takeUntil ngOnDestroy]');
     this.unsubscribe.next();
     this.unsubscribe.complete();
 }
@@ -37,8 +36,8 @@ onLogin() {
        () => {
          this.setMessage();
          if (this.authService.isLoggedIn) {
-          const redirect = this.authService.redirectUrl 
-            ? this.authService.redirectUrl 
+          const redirect = this.authService.redirectUrl
+            ? this.authService.redirectUrl
             : '/admin';
           this.router.navigate([redirect]);
       }
@@ -47,7 +46,7 @@ onLogin() {
         () => console.log('[takeUntil] complete')
     );
   }
-  
+
   onLogout() {
       this.authService.logout();
       this.setMessage();

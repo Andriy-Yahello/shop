@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
-import { 
-  ManageUsersComponent, 
-  ProductsComponent, 
+import {
+  ManageUsersComponent,
+  ProductsComponent,
   AdminDashboardComponent,
   OrdersComponent
  } from '.';
 import { AuthGuard, CanDeactivateGuard } from '../core';
 import { AdminProductFormComponent } from './components';
-import { ProductResolveGuard } from '../products/guards';
 import { AdminProductResolveGuard } from './guards/admin-product-resolve.guard';
 
 
@@ -58,10 +57,10 @@ const routes: Routes = [
 export class AdminRoutingModule { }
 
 export const adminRouterComponents = [
-  AdminComponent, 
+  AdminComponent,
   ProductsComponent,
   AdminProductFormComponent,
-  AdminDashboardComponent, 
-  ProductsComponent, 
+  AdminDashboardComponent,
+  ProductsComponent,
   ManageUsersComponent,
   OrdersComponent];

@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
-// rxjs
 import { Observable } from 'rxjs';
-
 import { UserModel } from './../../models/user.model';
 import { UserArrayService } from './../../services/user-array.service';
-import { CanComponentDeactivate, DialogService } from 'src/app/core';
 import { pluck } from 'rxjs/operators';
+import { CanComponentDeactivate, DialogService } from '../../../core';
 
 @Component({
   templateUrl: './user-form.component.html',
@@ -30,11 +27,10 @@ export class UserFormComponent implements OnInit, CanComponentDeactivate  {
       this.user = { ...user };
       this.originalUser = { ...user };
     });
-
   }
 
   onSaveUser() {
-    const user = {...this.user};
+    const user = { ...this.user };
 
     if (user.id) {
       this.userArrayService.updateUser(user);
@@ -43,7 +39,7 @@ export class UserFormComponent implements OnInit, CanComponentDeactivate  {
       this.userArrayService.createUser(user);
       this.onGoBack();
     }
-    this.originalUser = {...this.user};
+    this.originalUser = { ...this.user };
   }
 
   onGoBack() {
@@ -61,7 +57,7 @@ export class UserFormComponent implements OnInit, CanComponentDeactivate  {
       if (flags.every(el => el)) {
         return true;
       }
-      
+
       return this.dialogService.confirm('Discard changes?');
   }
 }

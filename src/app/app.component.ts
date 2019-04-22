@@ -20,7 +20,6 @@ export class AppComponent implements OnInit, OnDestroy {
     private router: Router) {}
 
   onDisplayFeeds(): void {
-    console.log("onDisplayFeeds");
     this.router.navigate([{ outlets: { feeds: ['feeds'] } }]);
     this.feedbackListService.isDisplayed = true;
   }
@@ -36,7 +35,6 @@ export class AppComponent implements OnInit, OnDestroy {
   private setPageTitles() {
       this.sub = this.router.events
         .pipe(
-          
           filter(event => event instanceof NavigationEnd),
           map(() => this.router.routerState.root),
           map(route => {

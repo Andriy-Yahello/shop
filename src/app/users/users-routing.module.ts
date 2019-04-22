@@ -5,12 +5,11 @@ import { UserListComponent, UserFormComponent } from './components';
 import { CanDeactivateGuard, AuthGuard } from '../core';
 import { UserResolveGuard } from './guards';
 
-
 const routes: Routes = [
   {
     path: '',
     component: UsersComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'add',
@@ -27,7 +26,7 @@ const routes: Routes = [
       {
         path: '',
         component: UserListComponent
-      },
+      }
     ]
   }
 ];

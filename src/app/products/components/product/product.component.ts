@@ -1,12 +1,11 @@
-import { 
-  Component, 
-  ChangeDetectionStrategy, 
-  Input, 
-  Output, 
+import {
+  Component,
+  ChangeDetectionStrategy,
+  Input,
+  Output,
   EventEmitter } from '@angular/core';
 import { ProductModel } from '../../models/product.model';
 import { CartProductListService } from '../../../core';
-
 
 @Component({
   selector: 'app-product',
@@ -14,21 +13,20 @@ import { CartProductListService } from '../../../core';
   styleUrls: ['./product.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductComponent{
+export class ProductComponent {
 
   constructor(
-    private cartProductListService: CartProductListService){}
-    
+    private cartProductListService: CartProductListService) { }
+
   @Input() product: ProductModel;
 
   @Output() productDetails = new EventEmitter<ProductModel>();
 
-  showProductDetails()
-  {
+  showProductDetails() {
     this.productDetails.emit(this.product);
   }
 
-  addToCart(product: ProductModel){
+  addToCart(product: ProductModel) {
     this.cartProductListService.addProduct(product);
   }
 }

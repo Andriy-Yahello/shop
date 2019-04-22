@@ -1,10 +1,10 @@
-interface FeedBackModelInterface{
+interface FeedBackModelInterface {
     id: number;
     productId: number;
     description: string;
 }
 
-export class FeedBackModel implements FeedBackModelInterface{
+export class FeedBackModel implements FeedBackModelInterface {
     constructor(
         public id: number = null,
         public productId: number = null,

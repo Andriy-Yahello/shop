@@ -19,7 +19,7 @@ export class ProductFormComponent implements OnInit {
     private productArrayService: ProductArrayService,
     private router: Router,
     private route: ActivatedRoute,
-    private dialogService: DialogService) {}
+    private dialogService: DialogService) { }
 
   ngOnInit(): void {
       this.product = { ...this.product };
@@ -52,7 +52,7 @@ export class ProductFormComponent implements OnInit {
     console.log('Entered');
     this.router.navigate([{
       outlets: { feedback: ['feedback'] }
-    }]);  
+    }]);
   }
 
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
@@ -66,7 +66,7 @@ export class ProductFormComponent implements OnInit {
     if (flags.every(el => el)) {
       return true;
     }
-    
+
     return this.dialogService.confirm('Discard changes?');
   }
 }

@@ -10,7 +10,7 @@ import { LocalStorageService } from './local-storage.service';
 export class CartProductListService {
   private productList: ProductModel[] = [];
   private currentOrder: ProductModel[] = [];
-  private orderStatus: boolean = false;
+  private orderStatus: boolean;
   private ordersList: Array<OrderModel> = [];
   private count: number = 0;
 
@@ -24,48 +24,48 @@ export class CartProductListService {
     return this.productList;
   }
 
-  removeFromCart(product: ProductModel){
+  removeFromCart(product: ProductModel) {
     const index = this.productList.indexOf(product, 0);
     if (index > -1) {
       this.productList.splice(index, 1);
     }
   }
 
-  clearCart(){
+  clearCart() {
     this.productList = [];
   }
 
-  buyProducts(){
+  buyProducts() {
     this.count++;
     this.Status = true;
-    var order = new OrderModel(this.count, this.productList);
+    const order = new OrderModel(this.count, this.productList);
     this.ordersList.push(order);
 
-    console.log('buyProducts');
-
-    if (this.localStorageService.getFromLocalStorage('orders'))
-      this.localStorageService.addToLocalStorage('orders', order); 
-    else
+    if (this.localStorageService.getFromLocalStorage('orders')) {
+      this.localStorageService.addToLocalStorage('orders', order);
+    } else {
       this.localStorageService.saveToLocalStorage('orders', this.ordersList);
-      
+    }
+
     this.currentOrder = this.productList;
     this.productList = [];
   }
 
     getOrder(): Array<ProductModel> {
-      if (this.Status) 
-          return this.currentOrder;
+      if (this.Status) {
+        return this.currentOrder;
+      }
     }
 
     getOrders(): Array<OrderModel> {
         return this.ordersList;
     }
 
-    public get Status():boolean {
+    public get Status(): boolean {
         return this.orderStatus;
     }
 
-    public set Status(status:boolean) {
+    public set Status(status: boolean) {
         this.orderStatus = status;
     }
 }

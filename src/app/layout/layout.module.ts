@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { 
-  PathNotFoundComponent, 
-  CartComponent, 
+import {
+  PathNotFoundComponent,
+  CartComponent,
   LoginComponent,
   OrderComponent } from './components';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    PathNotFoundComponent,  
+    PathNotFoundComponent,
     CartComponent,
     OrderComponent,
     LoginComponent

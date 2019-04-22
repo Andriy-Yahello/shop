@@ -16,7 +16,7 @@ export class AdminProductResolveGuard implements Resolve<ProductModel> {
   constructor(
     private productPromiseService: ProductPromiseService,
     private router: Router
-  ) {}
+  ) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<ProductModel | null> {
     console.log('ProductResolve Guard is called');
@@ -26,7 +26,6 @@ export class AdminProductResolveGuard implements Resolve<ProductModel> {
     }
 
     const id = +route.paramMap.get('productId');
-    console.log('ProductResolveGuard'+id)
 
     return from(this.productPromiseService.getProduct(id)).pipe(
       map((product: ProductModel) => {

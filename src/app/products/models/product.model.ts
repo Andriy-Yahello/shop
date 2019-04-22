@@ -1,7 +1,7 @@
 import { Category } from '../enums/categoty.enum';
 import { FeedBackModel } from './feedback.model';
 
-interface ProductModelInterface{
+interface ProductModelInterface {
     id: number;
     name: string;
     description: string;
@@ -10,17 +10,17 @@ interface ProductModelInterface{
     available: boolean;
     quantity: number;
     updated: Date;
-    feedbackList: FeedBackModel[]
+    feedbackList: FeedBackModel[];
 }
 
-export class ProductModel implements ProductModelInterface{
-    
-    constructor(
+export class ProductModel implements ProductModelInterface {
+
+    constructor (
         public id: number = null,
-        public name:string = '', 
-        public description: string=  '',
-        public price:number = 0, 
-        public category:Category = Category.BestSeller,
+        public name: string = '',
+        public description: string= '',
+        public price: number = 0,
+        public category: Category = Category.BestSeller,
         public available: boolean = false,
         public quantity: number = 0,
         public updated: Date = new Date(),
