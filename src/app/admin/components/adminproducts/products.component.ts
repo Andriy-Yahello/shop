@@ -36,7 +36,7 @@ export class ProductsComponent implements OnInit {
 
   RemoveProductItem(product: ProductModel) {
     this.productPromiseService
-      .deleteTask(product)
+      .deleteProduct(product)
       .then(() => (this.products = this.productPromiseService.getProducts()))
       .catch(err => console.log(err));
   }

@@ -13,7 +13,6 @@ export class AdminproductComponent {
 
   @Output() changeProductAvailability = new EventEmitter<ProductModel>();
   @Output() editProduct = new EventEmitter<ProductModel>();
-  @Output() productFeed = new EventEmitter<ProductModel>();
   @Output() removeProduct = new EventEmitter<ProductModel>();
   @Output() productFeedbackList = new EventEmitter<Array<FeedBackModel>>();
 
