@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { CoreModule } from '../core.module';
 import { ProductModel } from '../../products/models/product.model';
 import { OrderModel } from '../models/order.model';
@@ -7,14 +7,20 @@ import { LocalStorageService } from './local-storage.service';
 @Injectable({
   providedIn: CoreModule
 })
-export class CartProductListService {
+export class CartProductListService implements OnInit {
+
   private productList: ProductModel[] = [];
   private currentOrder: ProductModel[] = [];
   private orderStatus: boolean;
   private ordersList: Array<OrderModel> = [];
   private count: number = 0;
-
+  
   constructor(private localStorageService: LocalStorageService) { }
+
+  ngOnInit(): void {
+    
+    //this.count = this.localStorageService.getFromLocalStorage('oders')[]
+  }
 
   addProduct(product: ProductModel): void {
     this.productList.unshift(product);
@@ -36,6 +42,7 @@ export class CartProductListService {
   }
 
   buyProducts() {
+    this.count = this.localStorageService.getFromLocalStorage('orders').length;
     this.count++;
     this.Status = true;
     const order = new OrderModel(this.count, this.productList);
