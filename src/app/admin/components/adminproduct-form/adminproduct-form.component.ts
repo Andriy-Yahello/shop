@@ -24,6 +24,7 @@ export class AdminProductFormComponent implements OnInit {
   
   ngOnInit() {
     this.product = new ProductModel;
+    this.originalProduct = new ProductModel;
 
     this.route.paramMap
       .pipe(
@@ -35,8 +36,7 @@ export class AdminProductFormComponent implements OnInit {
       )
       .subscribe(
         product => (
-          this.product = { ...product },
-          this.originalProduct = { ...product }),
+          this.product = { ...product }),
         err => console.log(err)
       );
   }

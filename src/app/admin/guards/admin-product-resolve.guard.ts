@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable, of, from } from 'rxjs';
 
 import { map, take, catchError } from 'rxjs/operators';
 import { ProductsServicesModule } from '../../products/products-services.module';
 import { ProductModel } from '../../products/models/product.model';
-import { ProductArrayService } from '../../products';
+import { ProductPromiseService } from '../../products';
 import { Category } from '../../products/enums/categoty.enum';
 
 
 @Injectable({
   providedIn: ProductsServicesModule
 })
-export class ProductResolveGuard implements Resolve<ProductModel> {
+export class AdminProductResolveGuard implements Resolve<ProductModel> {
   constructor(
-    private productArrayService: ProductArrayService,
+    private productPromiseService: ProductPromiseService,
     private router: Router
   ) {}
 
@@ -28,7 +28,7 @@ export class ProductResolveGuard implements Resolve<ProductModel> {
     const id = +route.paramMap.get('productId');
     console.log('ProductResolveGuard'+id)
 
-    return this.productArrayService.getProduct(id).pipe(
+    return from(this.productPromiseService.getProduct(id)).pipe(
       map((product: ProductModel) => {
         if (product) {
           return product;

@@ -1,1 +1,1 @@
-export * from './product-resolve.guard';
+export * from './admin-product-resolve.guard';

@@ -10,6 +10,7 @@ import {
 import { AuthGuard, CanDeactivateGuard } from '../core';
 import { AdminProductFormComponent } from './components';
 import { ProductResolveGuard } from '../products/guards';
+import { AdminProductResolveGuard } from './guards/admin-product-resolve.guard';
 
 
 const routes: Routes = [
@@ -37,7 +38,7 @@ const routes: Routes = [
     component: AdminProductFormComponent,
     canDeactivate: [CanDeactivateGuard],
       resolve: {
-        product: ProductResolveGuard
+        product: AdminProductResolveGuard
       }
   },
   {
@@ -45,7 +46,7 @@ const routes: Routes = [
     component: AdminProductFormComponent,
     canDeactivate: [CanDeactivateGuard],
       resolve: {
-        product: ProductResolveGuard
+        product: AdminProductResolveGuard
       }
   }
 ];
