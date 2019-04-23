@@ -11,7 +11,7 @@ import { filter, map, switchMap } from 'rxjs/operators';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'shop';
+  title = 'Shop';
   private sub: Subscription;
 
   constructor(
