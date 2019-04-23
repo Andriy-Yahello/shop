@@ -10,7 +10,7 @@ import { ProductModel } from '../../../products/models/product.model';
 export class CartComponent implements OnInit {
   cartList: Array<ProductModel> = [];
 
-  constructor (
+  constructor(
     private cartProductListService: CartProductListService) { }
 
   ngOnInit() {

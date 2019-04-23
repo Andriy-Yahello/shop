@@ -24,7 +24,7 @@ export class ProductFeedbackListComponent implements OnInit {
       .pipe(
         switchMap((params: Params) => this.productArrayService.getProduct(+params.get('productId'))))
       .subscribe(
-        product => 
+        product =>
           this.feedbackList = { ...product }.feedbackList,
         err => console.log(err)
     );

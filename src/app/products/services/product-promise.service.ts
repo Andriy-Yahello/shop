@@ -13,9 +13,9 @@ export class ProductPromiseService {
     constructor(private http: HttpClient, private timingService: TimingService) { }
 
     getProducts(): Promise<ProductModel[]> {
-        let startTime = Date.now();
+        const startTime = Date.now();
 
-        let res = this.http
+        const res = this.http
             .get(this.productsUrl)
             .toPromise()
             .then(response => response as ProductModel[])
@@ -23,14 +23,14 @@ export class ProductPromiseService {
 
         console.log(`getProducts took: ${this.timingService.TimingInterceptor(startTime)} s`);
 
-        return res
+        return res;
     }
 
     getProduct(id: number): Promise<ProductModel> {
-        let startTime = Date.now();
+        const startTime = Date.now();
         const url = `${this.productsUrl}/${id}`;
 
-        let res = this.http
+        const res = this.http
             .get(url)
             .toPromise()
             .then(response => response as ProductModel)
@@ -42,26 +42,26 @@ export class ProductPromiseService {
     }
 
     updateProduct(product: ProductModel): Promise<ProductModel> {
-        let startTime = Date.now();
+        const startTime = Date.now();
         const url = `${this.productsUrl}/${product.id}`,
         body = JSON.stringify(product),
         options = {
           headers: new HttpHeaders({ 'Content-Type': 'application/json' })
         };
 
-        let res = this.http
+        const res = this.http
             .put(url, body, options)
             .toPromise()
             .then(response => response as ProductModel)
             .catch(this.handleError);
 
         console.log(`updateProduct took: ${this.timingService.TimingInterceptor(startTime)} s`);
-        
+
         return res;
     }
 
     createProduct(product: ProductModel): Promise<ProductModel> {
-        let startTime = Date.now();
+        const startTime = Date.now();
         console.log(JSON.stringify(product));
         const url = this.productsUrl,
         body = JSON.stringify(product),
@@ -69,7 +69,7 @@ export class ProductPromiseService {
           headers: new HttpHeaders({ 'Content-Type': 'application/json' })
         };
 
-        let res = this.http
+        const res = this.http
             .post(url, body, options)
             .toPromise()
             .then(response => response as ProductModel)
@@ -81,10 +81,10 @@ export class ProductPromiseService {
     }
 
     deleteProduct(product: ProductModel): Promise<ProductModel> {
-        let startTime = Date.now();
+        const startTime = Date.now();
         const url = `${this.productsUrl}/${product.id}`;
 
-        let res = (
+        const res = (
             this.http
             .delete(url)
             .toPromise()
@@ -93,7 +93,7 @@ export class ProductPromiseService {
 
         console.log(`deleteProduct took: ${this.timingService.TimingInterceptor(startTime)} s`);
 
-        return res
+        return res;
     }
 
     private handleError(error: any): Promise<any> {

@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.setMessage();
   }
 
-  constructor (
+  constructor(
     public authService: AuthService,
     private router: Router
   ) { }

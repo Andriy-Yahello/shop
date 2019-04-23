@@ -13,8 +13,8 @@ export class CartProductListService {
   private currentOrder: ProductModel[] = [];
   private orderStatus: boolean;
   private ordersList: Array<OrderModel> = [];
-  private count: number = 0;
-  
+  private count: 0;
+
   constructor(private localStorageService: LocalStorageService) { }
 
   addProduct(product: ProductModel): void {

@@ -15,7 +15,7 @@ interface ProductModelInterface {
 
 export class ProductModel implements ProductModelInterface {
 
-    constructor (
+    constructor(
         public id: number = null,
         public name: string = '',
         public description: string= '',
