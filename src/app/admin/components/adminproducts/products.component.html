@@ -3,7 +3,7 @@
             (click)="onCreateProduct()">New Product</button>
       <br><br>
       <app-adminproduct 
-            *ngFor="let product of products | async" 
+            *ngFor="let product of products | timerPipe: 'Get products admin request' | async" 
             [product]="product"
             (changeProductAvailability)="onChangeProductStatus($event)"
             (editProduct)="onEditProduct($event)"

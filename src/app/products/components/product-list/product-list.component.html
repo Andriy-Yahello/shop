@@ -1,7 +1,7 @@
 <div class="container">
     <div class="col-md-12">
       <app-product 
-      *ngFor="let product of products | async" 
+      *ngFor="let product of products | timerPipe: 'Get products request' | async" 
       [product]="product"
       (productDetails)="showFeed($event)"
       >

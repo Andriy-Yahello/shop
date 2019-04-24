@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AdminRoutingModule, adminRouterComponents } from './admin-routing.module';
 import { FormsModule } from '@angular/forms';
 import { AdminProductFormComponent, AdminproductComponent } from './components';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { AdminProductFormComponent, AdminproductComponent } from './components';
   imports: [
     CommonModule,
     FormsModule,
+    SharedModule,
     AdminRoutingModule
   ]
 })

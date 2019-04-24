@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { CoreModule } from './core/core.module';
 import { ProductInfoModule } from './products/components/product-info/product-info.module';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     FormsModule,
     LayoutModule,
+    SharedModule,
     CoreModule,
     ProductInfoModule,
     ProductsModule,

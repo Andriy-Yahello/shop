@@ -7,17 +7,17 @@ import { OrderModel } from '../models/order.model';
 })
 export class LocalStorageService {
 
-    saveToLocalStorage(key: string, oreders: Array<OrderModel>) {
-      localStorage.setItem(key, JSON.stringify(oreders));
+    saveToLocalStorage(key: string, items: Array<any>) {
+      localStorage.setItem(key, JSON.stringify(items));
     }
 
     getFromLocalStorage(key: string) {
       return JSON.parse(localStorage.getItem(key));
     }
 
-    addToLocalStorage(key: string, order: OrderModel) {
+    addToLocalStorage(key: string, item: any) {
       const items = this.getFromLocalStorage(key);
-      items.push(order);
+      items.push(item);
       this.saveToLocalStorage(key, items);
     }
 }
