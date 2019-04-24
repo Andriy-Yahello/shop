@@ -2,6 +2,7 @@ export * from './services/feedback-list.service';
 export * from './services/cart-product-list.service';
 export * from './guards/auth.guard';
 export * from './services/auth.service';
+export * from './interceptors/request-time.interceptor';
 
 export * from './services/dialog.service';
 
