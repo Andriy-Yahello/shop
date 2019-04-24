@@ -11,7 +11,7 @@ Created a timirPipe -> to use -> Go to product-list.component.html and see line#
 go to adminproduct-form.component.html, products.component.html and see (| timerPipe: 'Get products admin request')
 
 timerPipe accepts parameter -> in order to track elapsed time during the request use the following instructions:
-- decorete html file with timerPipe: '<your parameter>'
+- decorate html file with timerPipe: '<your parameter>'
 - add new key to assets/app-settings.json
 
 _____________________________________________________________________________
