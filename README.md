@@ -1,3 +1,20 @@
+Task 6
+
+Go to assets/app-settings.json and add new key like { "id": "Get product admin request" }
+
+Adjust path in AppSettingsService -> Go to line # 28 and modify string '.assets/app-settings.json' to 'assets/app-settings.json'
+
+if file does not exist or wrong name default setting will be loaded
+
+Created a timirPipe -> to use -> Go to product-list.component.html and see line# 4 (  *ngFor="let product of products | timerPipe: 'Get products request' | async" )
+
+go to adminproduct-form.component.html, products.component.html and see (| timerPipe: 'Get products admin request')
+
+timerPipe accepts parameter -> in order to track elapsed time during the request use the following instructions:
+- decorete html file with timerPipe: '<your parameter>'
+- add new key to assets/app-settings.json
+
+_____________________________________________________________________________
 Go to products -> click Details -> click details button to view product info
 -> click feeds to view product feedback
 
