@@ -13,7 +13,10 @@ go to adminproduct-form.component.html, products.component.html and see (| timer
 timerPipe accepts parameter -> in order to track elapsed time during the request use the following instructions:
 - decorate html file with timerPipe: '<your parameter>'
 - add new key to assets/app-settings.json
+  
+ - Created an interceptor to catch all requests that contain 'product'
 
+- Time consumed to process requests i is displayed in console
 _____________________________________________________________________________
 Go to products -> click Details -> click details button to view product info
 -> click feeds to view product feedback
