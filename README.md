@@ -14,9 +14,9 @@ timerPipe accepts parameter -> in order to track elapsed time during the request
 - decorate html file with timerPipe: '<your parameter>'
 - add new key to assets/app-settings.json
   
- - Created an interceptor to catch all requests that contain 'product'
+Created an interceptor to catch all requests that contain 'product'
 
-- Time consumed to process requests i is displayed in console
+Time consumed to process requests i is displayed in console
 _____________________________________________________________________________
 Go to products -> click Details -> click details button to view product info
 -> click feeds to view product feedback
