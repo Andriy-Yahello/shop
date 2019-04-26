@@ -9,6 +9,9 @@ import {
 } from './components';
 import { ProductsRoutingModule } from './products-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { ProductsEffects, productsReducer } from '../core/+store/products';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -20,8 +23,10 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule,
     CommonModule,
     FormsModule,
+    StoreModule.forFeature('products', productsReducer),
     ProductsRoutingModule,
-    ProductsServicesModule
+    ProductsServicesModule,
+    EffectsModule.forFeature([ProductsEffects])
   ]
 })
 export class ProductsModule { }

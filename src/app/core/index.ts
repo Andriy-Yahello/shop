@@ -3,6 +3,7 @@ export * from './services/cart-product-list.service';
 export * from './guards/auth.guard';
 export * from './services/auth.service';
 export * from './interceptors/request-time.interceptor';
+export * from './decorators';
 
 export * from './services/dialog.service';
 

@@ -4,6 +4,8 @@ import { AdminRoutingModule, adminRouterComponents } from './admin-routing.modul
 import { FormsModule } from '@angular/forms';
 import { AdminProductFormComponent, AdminproductComponent } from './components';
 import { SharedModule } from '../shared/shared.module';
+import { StoreModule } from '@ngrx/store';
+import { productsReducer } from '../core/+store';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,7 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     FormsModule,
+    StoreModule.forFeature('products', productsReducer),
     SharedModule,
     AdminRoutingModule
   ]

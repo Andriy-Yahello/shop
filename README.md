@@ -56,3 +56,29 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+------------------------------------------
+ npm install @ngrx/store-devtools --save-dev
+npm install @ngrx/router-store ---save-prod
+npm install @ngrx/entity ---save-prod
+ npm install @ngrx/effects ---save-prod
+npm install @ngrx/store ---save-prod
+npm i @ngrx/schematics --save-dev
+
+---------------------
+added to angular.json under   "defaultProject": "shop",
+> ng config cli.defaultCollection @ngrx/schematics
+
+
+ "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "app",
+      "styleext": "css"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "app"
+    }
+  },
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }

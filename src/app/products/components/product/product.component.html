@@ -15,7 +15,8 @@
 				Details
 		</button>
 		<button class="btn btn-warning btn-sm"
-				(click)="addToCart(product)">
+				(click)="addToCart(product)"
+				[disabled]="!product.available">
 				Add to Cart
 		</button>
 	</div>

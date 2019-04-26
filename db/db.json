@@ -4,10 +4,10 @@
       "id": 1,
       "name": "Ball",
       "description": "Official NBA Street Basketball, Size 6 (28.5\")",
-      "price": 90,
+      "price": 92,
       "category": "best seller",
       "available": false,
-      "quantity": 56,
+      "quantity": 34,
       "updated": "2019-02-28T08:00:00.000Z",
       "feedbackList": [
         {
@@ -74,18 +74,15 @@
       "id": 4
     },
     {
-      "name": "a",
-      "description": "dl",
-      "price": 4,
-      "quantity": 5,
-      "id": 5
-    },
-    {
-      "name": "ee",
-      "description": "rrrr",
-      "price": 5,
-      "quantity": 6,
-      "id": 6
+      "id": 7,
+      "name": "рвпаравпр",
+      "description": "рпрпр",
+      "price": 33,
+      "category": "best seller",
+      "available": false,
+      "quantity": 555,
+      "updated": "2019-04-26T10:05:25.666Z",
+      "feedbackList": []
     }
   ]
 }
