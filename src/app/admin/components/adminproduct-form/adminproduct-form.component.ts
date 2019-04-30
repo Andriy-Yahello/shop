@@ -23,6 +23,7 @@ import * as RouterActions from './../../../core/+store/router/router.actions';
 export class AdminProductFormComponent implements OnInit {
   product: ProductModel;
   originalProduct: ProductModel;
+  onSave: boolean;
   // productsState$: Observable<ProductsState>;
   private sub: Subscription;
 
@@ -79,7 +80,17 @@ export class AdminProductFormComponent implements OnInit {
 
     this.sub = this.store
       .pipe(select(getSelectedProductByUrl))
-      .subscribe(product => this.product = product);
+      .subscribe(product => 
+        {
+          if (product.id != null)
+            this.product = product;
+          else if (product.id === null && this.product === undefined){
+            this.product = product;
+          }
+          else { 
+            this.product;
+          } 
+        });
 
       this.originalProduct = { ...this.product };
 
@@ -97,6 +108,7 @@ export class AdminProductFormComponent implements OnInit {
   }
 
   onSaveProduct() {
+    this.onSave = true;
     const product = { ...this.product };
 
     // const method = product.id ? 'updateProduct' : 'createProduct';
@@ -134,6 +146,10 @@ export class AdminProductFormComponent implements OnInit {
       return true;
     }
 
-    return this.dialogService.confirm('Discard changes?');
+    if (!this.onSave)
+      return this.dialogService.confirm('Discard changes?');
+    else {
+      return true;
+    }
   }
 }

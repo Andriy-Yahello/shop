@@ -59,7 +59,7 @@ export class ProductsComponent implements OnInit {
     }));
   }
 
-  RemoveProductItem(product: ProductModel) {
+  removeProductItem(product: ProductModel) {
     this.store.dispatch(new ProductsActions.DeleteProduct(product));
     // this.productPromiseService
     //   .deleteProduct(product)
