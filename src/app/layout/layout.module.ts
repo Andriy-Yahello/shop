@@ -4,18 +4,21 @@ import {
   PathNotFoundComponent,
   CartComponent,
   LoginComponent,
-  OrderComponent } from './components';
-import { FormsModule } from '@angular/forms';
+  OrderComponent, 
+  ProcessOrderComponent} from './components';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 @NgModule({
   declarations: [
     PathNotFoundComponent,
     CartComponent,
+    ProcessOrderComponent,
     OrderComponent,
     LoginComponent
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     FormsModule
   ]
 })

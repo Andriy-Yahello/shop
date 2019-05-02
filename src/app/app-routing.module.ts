@@ -5,7 +5,8 @@ import {
   PathNotFoundComponent,
   CartComponent,
   OrderComponent,
-  LoginComponent} from './layout';
+  LoginComponent,
+  ProcessOrderComponent} from './layout';
 import { AuthGuard } from './core';
 
 const routes: Routes = [
@@ -40,6 +41,10 @@ const routes: Routes = [
   {
     path: 'order',
     component: OrderComponent
+  },
+  {
+    path: 'processorder',
+    component: ProcessOrderComponent
   },
   {
     path: '**',
