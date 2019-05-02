@@ -7,7 +7,7 @@ export interface ProductsState extends EntityState<ProductModel> {
     readonly error: Error | string;
   }
 
-export const productAdapter: EntityAdapter<ProductModel> = createEntityAdapter<ProductModel>();  
+export const productAdapter: EntityAdapter<ProductModel> = createEntityAdapter<ProductModel>();
 
 export const initialProductsState: ProductsState  = productAdapter.getInitialState({
     loading: false,

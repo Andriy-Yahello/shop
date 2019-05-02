@@ -11,9 +11,10 @@ import * as RouterActions from './../router/router.actions';
 @Injectable()
 export class ProductsEffects {
 
-  constructor(private actions$: Actions,
+  constructor(
+    private actions$: Actions,
     private productPromiseService: ProductPromiseService){
-    console.log('[PRODUCTS EFFECTS]');
+      console.log('[PRODUCTS EFFECTS]');
   }
 
   @Effect()

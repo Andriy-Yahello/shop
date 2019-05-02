@@ -7,7 +7,7 @@ export const getProductsState = createFeatureSelector<ProductsState>('products')
 
 export const {
     selectEntities: getProductsEntities,
-    selectAll: getProductsData 
+    selectAll: getProductsData
 } = productAdapter.getSelectors(getProductsState);
 
 export const getProductsError = createSelector(getProductsState, (state: ProductsState) => state.error);

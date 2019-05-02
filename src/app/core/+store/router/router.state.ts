@@ -29,7 +29,7 @@ export class CustomSerializer implements RouterStateSerializer<RouterStateUrl> {
             state = state.firstChild;
         }
         const { params, fragment } = state;
-        
+
         return { url, queryParams, params, fragment };
     }
 }
