@@ -22,7 +22,7 @@ export class ProductExistGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
     return checkStore(this.store).pipe(
       switchMap(() => {
-        console.log('canActivate ProductExistGuard')
+        console.log('canActivate ProductExistGuard');
         const id = +route.paramMap.get('productId');
         return this.hasProduct(id);
       })
@@ -32,18 +32,12 @@ export class ProductExistGuard implements CanActivate {
   private hasProduct(id: number): Observable<boolean> {
     return this.store.pipe(
       select(getProductsData),
-
-      // check if product with id exists
       map(products => !!products.find(product => product.id === id)),
-
-      // make a side effect
       tap(result => {
         if (!result) {
           this.store.dispatch(new RouterActions.Go({ path: ['admin/products'] }));
         }
       }),
-
-      // automatically unsubscribe
       take(1)
     );
   }

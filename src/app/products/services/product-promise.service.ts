@@ -30,9 +30,9 @@ export class ProductPromiseService {
     }
 
     updateProduct(product: ProductModel): Promise<ProductModel> {
-        const url = `${this.productsUrl}/${product.id}`,
-        body = JSON.stringify(product),
-        options = {
+        const url = `${this.productsUrl}/${product.id}`;
+        const body = JSON.stringify(product);
+        const options = {
           headers: new HttpHeaders({ 'Content-Type': 'application/json' })
         };
 
@@ -45,9 +45,9 @@ export class ProductPromiseService {
 
     createProduct(product: ProductModel): Promise<ProductModel> {
         console.log(JSON.stringify(product));
-        const url = this.productsUrl,
-        body = JSON.stringify(product),
-        options = {
+        const url = this.productsUrl;
+        const body = JSON.stringify(product);
+        const options = {
           headers: new HttpHeaders({ 'Content-Type': 'application/json' })
         };
 

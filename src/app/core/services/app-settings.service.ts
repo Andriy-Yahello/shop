@@ -24,18 +24,18 @@ import { HttpClient } from '@angular/common/http';
           }
       }
 
-        private getJSON() {
-            return this.http.get('.assets/app-settings.json')
-                .subscribe((res: Array<RequestModel>) => {
-                    this.localStogareService.saveToLocalStorage('appSettings', res['requests']);
-                }, () => this.getDefaultSettings());
-            }
+      private getJSON() {
+        return this.http.get('.assets/app-settings.json')
+          .subscribe((res: Array<RequestModel>) => {
+              this.localStogareService.saveToLocalStorage('appSettings', res['requests']);
+          }, () => this.getDefaultSettings());
+      }
 
-        private getDefaultSettings() {
-            console.log('failed to find app-settings.json, loaded default settings');
-            this.settings = new Array<RequestModel>(
-                new RequestModel('Get products admin request')
-            );
-            this.localStogareService.saveToLocalStorage('appSettings', this.settings);
-        }
+      private getDefaultSettings() {
+          console.log('failed to find app-settings.json, loaded default settings');
+          this.settings = new Array<RequestModel>(
+              new RequestModel('Get products admin request')
+          );
+          this.localStogareService.saveToLocalStorage('appSettings', this.settings);
+      }
 }

@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router } from '@angular/router';
 import { Observable, of, from, Subscription } from 'rxjs';
-
 import { map, take, catchError } from 'rxjs/operators';
 import { ProductsServicesModule } from '../../products/products-services.module';
 import { ProductModel } from '../../products/models/product.model';
 import { ProductPromiseService } from '../../products';
 import { Category } from '../../products/enums/categoty.enum';
 import { ProductsState } from '../../core/+store';
-
 
 @Injectable({
   providedIn: ProductsServicesModule
@@ -18,7 +16,6 @@ export class AdminProductResolveGuard implements Resolve<ProductModel> {
   private sub: Subscription;
   constructor(
     private productPromiseService: ProductPromiseService,
-    
     private router: Router
   ) { }
 

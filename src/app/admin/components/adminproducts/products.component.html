@@ -3,7 +3,6 @@
             (click)="onCreateProduct()">New Product</button>
       <br><br>
 
-      <!-- <p *ngIf="(productsState$ | async).error as value">{{value}}</p> -->
       <p *ngIf="(productsError$ | async) as value">{{value}}</p>
       <app-adminproduct 
             *ngFor="let product of (products$ | timerPipe: 'Get products admin request' | async)" 

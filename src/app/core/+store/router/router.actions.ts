@@ -1,5 +1,4 @@
 import { Action } from '@ngrx/store';
-
 import { NavigationExtras } from '@angular/router';
 
 export enum RouterActionTypes {

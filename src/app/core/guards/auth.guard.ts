@@ -8,8 +8,7 @@ import {
   UrlSegment,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
-  UrlTree,
-  Router } from '@angular/router';
+  UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CoreModule } from '../core.module';
 import { AuthService } from '../services/auth.service';
@@ -24,7 +23,6 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   constructor(
     private authService: AuthService,
     private store: Store<AppState>
-    // private router: Router
   ) { }
 
   canActivate(
@@ -55,10 +53,8 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
 
     this.authService.redirectUrl = url;
 
-    // this.router.navigate(['/login']);
     this.store.dispatch(new RouterActions.Go({
       path: ['/login'],
-      // extras: navigationExtras
     }));
 
     return false;
