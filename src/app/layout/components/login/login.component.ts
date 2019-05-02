@@ -11,9 +11,13 @@ import { AuthService } from './../../../core';
 })
 export class LoginComponent implements OnInit, OnDestroy {
   message: string;
+  checkLogin: boolean;
   private unsubscribe: Subject<void> = new Subject();
 
   ngOnInit(): void {
+    this.checkLogin = JSON.parse(localStorage.getItem('isLoggedIn')) === null 
+      ? false
+      : JSON.parse(localStorage.getItem('isLoggedIn'));
     this.setMessage();
   }
 
@@ -35,7 +39,7 @@ onLogin() {
       .subscribe(
        () => {
          this.setMessage();
-         if (this.authService.isLoggedIn) {
+         if (this.authService.isLoggedIn || JSON.parse(localStorage.getItem('isLoggedIn')) === true) {
           const redirect = this.authService.redirectUrl
             ? this.authService.redirectUrl
             : '/admin';
@@ -49,6 +53,7 @@ onLogin() {
 
   onLogout() {
       this.authService.logout();
+      this.checkLogin = false;
       this.setMessage();
   }
 

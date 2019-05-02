@@ -31,7 +31,7 @@ export class ProductsComponent implements OnInit {
     // this.productsState$ = this.store.pipe(select(getProductsState));
     this.products$ = this.store.pipe(select(getProductsData));
     this.productsError$ = this.store.pipe(select(getProductsError));
-    this.store.dispatch(new ProductsActions.GetProducts());
+    //this.store.dispatch(new ProductsActions.GetProducts());
   }
 
   onChangeProductStatus(product: ProductModel): void {

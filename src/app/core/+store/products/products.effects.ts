@@ -36,8 +36,8 @@ export class ProductsEffects {
   );
 
   @Effect()
-  createUpdateTaskSuccess$: Observable<Action> = this.actions$.pipe(
-    ofType<ProductsActions.CreateProduct | ProductsActions.UpdateProduct>(
+  createUpdateProductSuccess$: Observable<Action> = this.actions$.pipe(
+    ofType<ProductsActions.CreateProductSuccess | ProductsActions.UpdateProductSuccess>(
       ProductsActions.ProductsActionTypes.CREATE_PRODUCT_SUCCESS,
       ProductsActions.ProductsActionTypes.UPDATE_PRODUCT_SUCCESS
     ),
