@@ -1,5 +1,5 @@
 export function AutoUnsubscribe(subName: string = 'sub') {
-  return function (constructor) {
+  return function(constructor) {
     const original = constructor.prototype.ngOnDestroy;
 
     constructor.prototype.ngOnDestroy = function() {

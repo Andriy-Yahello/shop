@@ -7,6 +7,7 @@ import {
   OrderComponent, 
   ProcessOrderComponent} from './components';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { ValidatorsModule } from '../validators/validators.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
   ],
   imports: [
     CommonModule,
+    ValidatorsModule,
     ReactiveFormsModule,
     FormsModule
   ]
