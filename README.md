@@ -1,3 +1,9 @@
+Task 7
+
+Used ngrx library for products
+
+_________________________________
+
 Task 6
 
 Go to assets/app-settings.json and add new key like { "id": "Get product admin request" }
