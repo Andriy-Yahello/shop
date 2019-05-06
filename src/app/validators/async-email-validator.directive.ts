@@ -16,13 +16,11 @@ import { debounceTime, distinctUntilChanged, first} from 'rxjs/operators';
 })
 export class AsyncEmailValidatorDirective implements Validator {
   validate(c: AbstractControl): Promise<{ [key: string]: any}>|Observable < {[key: string]: any}> {
-     return this.validateEmailPromise(c.value);
-    // return this.validateEmailObservable(c.value)
-    //  .pipe(
-    //    debounceTime(1000),
-    //    distinctUntilChanged(),
-    //    first()
-    //  );
+     return this.validateEmailObservable(c.value).pipe(
+       debounceTime(1000),
+       distinctUntilChanged(),
+       first()
+     );;
   }
 
   private validateEmailPromise(email: string) {
