@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl, FormArray } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl, FormArray, ValidationErrors } from '@angular/forms';
 import { CustomValidators } from '../../../validators';
 import { Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
@@ -47,6 +47,7 @@ private setValidationMessage(c: AbstractControl, controlName: string) {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    console
     this.buildForm();
     this.watchValueChanges();
   }
@@ -106,14 +107,26 @@ private setValidationMessage(c: AbstractControl, controlName: string) {
     return <FormArray>this.orderForm.get('phones');
   }
 
+  isControlInvalid(controlName: string): boolean {
+    const control = this.orderForm.controls[controlName];
+    
+     const result = control.invalid && control.touched;
+    
+     return result;
+    }
+
+    showForm(){
+      console.log( 'showForm');
+      console.log( this.getFormValidationErrors());
+    }
 
   onSave() {
     // Form model
-    console.log(this.orderForm);
+    // console.log(this.orderForm);
     // Form value w/o disabled controls
-    console.log(`Saved: ${JSON.stringify(this.orderForm.value)}`);
+    // console.log(`Saved: ${JSON.stringify(this.orderForm.value)}`);
     // Form value w/ disabled controls
-    console.log(`Saved: ${JSON.stringify(this.orderForm.getRawValue())}`);
+    // console.log(`Saved: ${JSON.stringify(this.orderForm.getRawValue())}`);
   }
 
   onBlur() {
@@ -182,9 +195,23 @@ private setValidationMessage(c: AbstractControl, controlName: string) {
     });
   }
 
+  getFormValidationErrors() {
+    Object.keys(this.orderForm.controls).forEach(key => {
+  
+    const controlErrors: ValidationErrors = this.orderForm.get(key).errors;
+    if (controlErrors != null) {
+          Object.keys(controlErrors).forEach(keyError => {
+            console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
+          });
+        }
+      });
+    }
+
+  phonePattern = "^((\\+91-?)|0)?[0-9]{10}$"; 
+
   private buildPhone(): FormGroup {
     return this.fb.group({
-      phone: ''
+      phone: ['',  [Validators.required, Validators.pattern(this.phonePattern)]]
     });
   }
 }
