@@ -113,8 +113,11 @@
                                     placeholder={{placeholder.phone}}
                                     formControlName="phone"/>
                                 <span class="help-block">
-                                    <span *ngIf="phone.invalid">
-                                        Please enter valid phone number.
+                                    <span *ngIf="orderForm.get('phones')['controls'][i].get('phone').hasError('pattern')">
+                                                Please enter valid phone number.
+                                            </span>
+                                    <span *ngIf="orderForm.get('phones')['controls'][i].get('phone').hasError('required')">
+                                        Phone number is required.
                                     </span>
                                 </span>
                             </div>
